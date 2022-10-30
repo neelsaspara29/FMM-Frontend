@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import Navbar from "./Layouts/Navbar/Navbar";
+import Homeroutes from "./Routes/Home/Homeroutes";
 
 function App() {
+  useEffect(() => {
+    const head = document.querySelector("body");
+    const script = document.createElement("script");
+    console.log('app')
+    script.setAttribute("src", './Assets/js/test.js');
+    head.appendChild(script);
+
+    return () => {
+      head.removeChild(script);
+    };
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>  
+      <Navbar />
+      <Homeroutes />
+    </>
   );
 }
 
