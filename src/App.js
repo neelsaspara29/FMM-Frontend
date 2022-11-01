@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { Route, Routes } from "react-router-dom";
+import Footer from "./Layouts/Footer/Footer";
 import Navbar from "./Layouts/Navbar/Navbar";
 import Homeroutes from "./Routes/Home/Homeroutes";
+import Artistloginroutes from "./Routes/Login/Artist/Artistloginroutes";
 
 function App() {
   useEffect(() => {
@@ -18,6 +21,9 @@ function App() {
     <>  
       <Navbar />
       <Homeroutes />
+      <Artistloginroutes />
+
+      <Footer />
     </>
   );
 }

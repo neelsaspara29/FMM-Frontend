@@ -7,7 +7,7 @@ import './Assets/css/style.css'
 // import './Assets/css/swiper-bundle.min.css'
 import "swiper/swiper-bundle.min.css";
 import "swiper/swiper.min.css";
-
+// import "./Style/tailindex.css" 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
