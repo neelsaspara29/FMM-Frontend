@@ -7,17 +7,11 @@ import Preseginglogin from "./Components/Preseginglogin";
 import Profilelogin from "./Components/Profilelogin";
 import Progressbar from "./Components/Progressbar";
 import Servicelogin from "./Components/Servicelogin";
-
+import artistlogininitialvalues from "../../Constants/FormInitialvalues/artistlogininitialvalues";
+import artistloginschema from "../../Schema/Yupschema/artistschema";
 function Artistlogin() {
   const [stage, setStage] = useState(1);
-  const initialValues = {
-    firstname: "",
-    lastname: "",
-    phone: "",
-    email: "",
-    message: "",
-    gender: "",
-  };
+
   const nextStage = () => {
     setStage(stage + 1);
   };
@@ -28,7 +22,11 @@ function Artistlogin() {
     <>
       <Dashboardentry />
       <Progressbar stage={stage} />
-      <Formik initialValues={initialValues}>
+      <Formik
+        initialValues={artistlogininitialvalues}
+        validationSchema={artistloginschema}
+        validateOnBlur={false}
+      >
         {(formikprops) => {
           return (
             <>

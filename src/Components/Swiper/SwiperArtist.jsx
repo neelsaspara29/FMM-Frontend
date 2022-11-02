@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import demandartistData from "../../Constants/demandartistData";
+import demandartistData from "../../Constants/SupportData/demandartistData";
 import Demandartistcard from "../Cards/Demandartistcard";
 function SwiperArtist() {
   const [swiperActiveidx, setSwiperActiveidx] = useState(4);

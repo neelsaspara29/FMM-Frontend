@@ -3,7 +3,23 @@ import React from "react";
 
 
 function Profilelogin({ formikprops, nextStage, prevStage }) {
-  console.log("fp", formikprops.values);
+  console.log("fp", formikprops);
+  const validateProfile = () => {
+    formikprops.setTouched({
+      firstname: true,
+      lastname: true,
+      gender: true,
+      email: true,
+      phone: true,
+      message: true,
+    });
+    formikprops.validateField("firstname");
+    formikprops.validateField("lastname");
+    formikprops.validateField("gender");
+    formikprops.validateField("email");
+    formikprops.validateField("phone");
+    formikprops.validateField("message");
+  };
   return (
     <>
       <div className="main-login-section">
@@ -24,6 +40,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                 <Form className="login-form">
                   <div className="input-field">
                     <label htmlFor="firstname">First Name*</label>
+                    <ErrorMessage name="firstname" />
                     <Field
                       type="text"
                       placeholder="Enter First name"
@@ -36,6 +53,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                       <label htmlFor="lastname">
                         <b>Last Name</b>
                       </label>
+                      <ErrorMessage name="lastname" />
                       <Field
                         type="text"
                         placeholder="Last name"
@@ -45,6 +63,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                     </div>
                     <div className="input-field">
                       <label htmlFor="gender"> Select you gender</label>
+                      <ErrorMessage name="gender" />
                       <Field as="select" name="gender">
                         <option value="none">Select Gender</option>
                         <option value="male">Mail</option>
@@ -55,6 +74,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                   </div>
                   <div className="input-field contact-number">
                     <label htmlFor="phone">Contact Number*</label>
+                    <ErrorMessage name="phone" />
                     <Field
                       type="tel"
                       id="phone"
@@ -109,6 +129,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                   </div>
                   <div className="input-field">
                     <label htmlFor="email">Enter your email:</label>
+                    <ErrorMessage name="email" />
                     <Field
                       type="email"
                       id="email"
@@ -121,6 +142,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                       <span>Bio For Your Profile</span>
                       <span className="word">Within 200 Words</span>
                     </label>
+                    <ErrorMessage name="message" />
                     <Field
                       as="textarea"
                       name="message"
@@ -138,7 +160,11 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
               </div>
             </div>
             <div class="login-button">
-              <button type="button" class="next-button" onClick={nextStage}>
+              <button
+                type="button"
+                class="next-button"
+                onClick={validateProfile}
+              >
                 Next
               </button>
             </div>

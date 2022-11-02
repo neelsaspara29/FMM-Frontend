@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import blogData from "../../Constants/blogData";
+import blogData from "../../Constants/SupportData/blogData";
 import Blogcard from "../Cards/Blogcard";
 function SwiperBlog() {
   return (
