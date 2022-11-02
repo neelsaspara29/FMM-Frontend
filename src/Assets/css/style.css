@@ -2018,3 +2018,16 @@ input[type=checkbox] + label:before {
     }
 }
 /* End services-section.css */
+.pagination-section {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 0px;
+    transform: translateY(-50%);
+    color: #fff;
+    padding: 0px 75px;
+}
+
+.pagination-section span {
+    margin-right: 20px !important;
+}

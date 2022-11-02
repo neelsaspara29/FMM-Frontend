@@ -1,6 +1,6 @@
 import React from "react";
 
-function Servicelogin() {
+function Servicelogin({ nextStage, prevStage }) {
   return (
     <>
       {" "}
@@ -324,6 +324,18 @@ function Servicelogin() {
                 </svg>
               </div>
             </div>
+          </div>
+          <div class="button-section">
+            <button
+              type="button"
+              class="next-button back-button"
+              onClick={prevStage}
+            >
+              Back
+            </button>
+            <button type="button" class="next-button" onClick={nextStage}>
+              Next
+            </button>
           </div>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function Preseginglogin() {
+function Preseginglogin({ nextStage, prevStage }) {
   return (
     <>
       <div class="main-presaging-section">
@@ -103,6 +103,18 @@ function Preseginglogin() {
               <div class="image-section">
                 <img src="assets/images/presaging-img.png" alt="image" />
               </div>
+            </div>
+            <div class="button-section">
+              <button
+                type="button"
+                class="next-button back-button"
+                onClick={prevStage}
+              >
+                Back
+              </button>
+              <button type="button" class="next-button" onClick={nextStage}>
+                Next
+              </button>
             </div>
           </div>
         </div>
