@@ -20,6 +20,11 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
     formikprops.validateField("phone");
     formikprops.validateField("message");
   };
+
+  const openImage = () => {
+    document.querySelector('.image-model').classList.toggle('opened')
+    document.querySelector('body').classList.toggle('opened-drawer')
+  }
   return (
     <>
       <div className="main-login-section">
@@ -33,6 +38,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                     className="upload-image"
                     src="assets/images/login-top-img.png"
                     alt="image"
+                    onClick={openImage}
                   />
                 </div>
               </div>
@@ -171,6 +177,23 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
           </div>
         </div>
       </div>
+      <div class="image-model">
+        <div class="image-model-wrapper">
+            <div class="model-header">
+                <h2>Add Profile Image</h2>
+                <svg class="close-model" xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+                <path d="M1 1L14 14M14 1L1 14L14 1Z" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="model-center">
+                <img src="assets/images/upload-img.png" alt="image" />
+                <div class="text">Drag or drop a photo <span>Browse</span></div>
+            </div>
+            <div class="model-footer">
+                <button class="upload-button">Uplaod Profile Photo</button>
+            </div>
+        </div>
+    </div>
     </>
   );
 }

@@ -10,7 +10,7 @@ function App() {
     const head = document.querySelector("body");
     const script = document.createElement("script");
     console.log('app')
-    script.setAttribute("src", './Assets/js/test.js');
+    script.setAttribute("src", './Assets/js/custom.js');
     head.appendChild(script);
 
     return () => {
