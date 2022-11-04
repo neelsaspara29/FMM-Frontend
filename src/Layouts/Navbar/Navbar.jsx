@@ -86,7 +86,11 @@ function Navbar() {
                   </li>
                 </ul>
               </div>
+<<<<<<< HEAD
               <div className="logo">
+=======
+              <div  class="logo cursor-pointer">
+>>>>>>> dd5905314f36235db689ddd035bf3a88b5203d51
                 <img src="assets/images/logo.png" alt="Logo Image" />
               </div>
               <div className="search-bar">

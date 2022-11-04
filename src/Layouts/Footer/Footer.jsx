@@ -17,13 +17,13 @@ function Footer() {
                 <a href="#">Contact Us</a>
               </li>
               <li>
-                <a href="#">Privacy Policy</a>
+                <a href="/privacy-policy">Privacy Policy</a>
               </li>
               <li>
                 <a href="#">Terms of Service</a>
               </li>
               <li>
-                <a href="#">FAQs</a>
+                <a href="/faq">FAQs</a>
               </li>
             </ul>
             <div class="footer-social-icon">
