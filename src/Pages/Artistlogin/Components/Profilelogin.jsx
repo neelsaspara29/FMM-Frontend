@@ -1,9 +1,10 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import React from "react";
-
+import React, { useState } from "react";
+import Profileimage from "../../../Components/Modals/Profileimage";
 
 function Profilelogin({ formikprops, nextStage, prevStage }) {
   console.log("fp", formikprops);
+  const [opened, setOpened] = useState(false);
   const validateProfile = () => {
     formikprops.setTouched({
       firstname: true,
@@ -11,14 +12,28 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
       gender: true,
       email: true,
       phone: true,
-      message: true,
     });
     formikprops.validateField("firstname");
     formikprops.validateField("lastname");
     formikprops.validateField("gender");
     formikprops.validateField("email");
     formikprops.validateField("phone");
-    formikprops.validateField("message");
+
+    if (
+      !(
+        formikprops.errors["firstname"] ||
+        formikprops.errors["lastname"] ||
+        formikprops.errors["gender"] ||
+        formikprops.errors["eamil"] ||
+        formikprops.errors["phone"]
+      ) &&
+      formikprops.dirty
+    ) {
+      nextStage();
+    }
+  };
+  const close = () => {
+    setOpened(!opened);
   };
   return (
     <>
@@ -33,6 +48,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                     className="upload-image"
                     src="assets/images/login-top-img.png"
                     alt="image"
+                    onClick={() => setOpened(!opened)}
                   />
                 </div>
               </div>
@@ -40,7 +56,9 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                 <Form className="login-form">
                   <div className="input-field">
                     <label htmlFor="firstname">First Name*</label>
-                    <ErrorMessage name="firstname" />
+                    <ErrorMessage name="firstname">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
                     <Field
                       type="text"
                       placeholder="Enter First name"
@@ -51,9 +69,11 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                   <div className="two-field">
                     <div className="input-field">
                       <label htmlFor="lastname">
-                        <b>Last Name</b>
+                        <b>Last Name*</b>
                       </label>
-                      <ErrorMessage name="lastname" />
+                      <ErrorMessage name="lastname">
+                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                      </ErrorMessage>
                       <Field
                         type="text"
                         placeholder="Last name"
@@ -62,8 +82,10 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                       />
                     </div>
                     <div className="input-field">
-                      <label htmlFor="gender"> Select you gender</label>
-                      <ErrorMessage name="gender" />
+                      <label htmlFor="gender"> Select you gender*</label>
+                      <ErrorMessage name="gender">
+                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                      </ErrorMessage>
                       <Field as="select" name="gender">
                         <option value="none">Select Gender</option>
                         <option value="male">Mail</option>
@@ -74,7 +96,9 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                   </div>
                   <div className="input-field contact-number">
                     <label htmlFor="phone">Contact Number*</label>
-                    <ErrorMessage name="phone" />
+                    <ErrorMessage name="phone">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
                     <Field
                       type="tel"
                       id="phone"
@@ -128,8 +152,10 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                     <span>Verified</span>
                   </div>
                   <div className="input-field">
-                    <label htmlFor="email">Enter your email:</label>
-                    <ErrorMessage name="email" />
+                    <label htmlFor="email">Enter your email*:</label>
+                    <ErrorMessage name="email">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
                     <Field
                       type="email"
                       id="email"
@@ -142,7 +168,9 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                       <span>Bio For Your Profile</span>
                       <span className="word">Within 200 Words</span>
                     </label>
-                    <ErrorMessage name="message" />
+                    <ErrorMessage name="message">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
                     <Field
                       as="textarea"
                       name="message"
@@ -159,10 +187,10 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
                 <img src="assets/images/login-right-img.png" alt="image" />
               </div>
             </div>
-            <div class="login-button">
+            <div className="login-button">
               <button
                 type="button"
-                class="next-button"
+                className="next-button"
                 onClick={validateProfile}
               >
                 Next
@@ -171,6 +199,7 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
           </div>
         </div>
       </div>
+      {opened && <Profileimage open={opened} close={close} />}
     </>
   );
 }

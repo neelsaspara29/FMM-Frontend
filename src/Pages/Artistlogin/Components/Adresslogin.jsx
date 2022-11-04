@@ -1,6 +1,38 @@
-import React from "react";
+import { ErrorMessage, Field, Form } from "formik";
+import React, { useEffect } from "react";
 
-function Adresslogin({ nextStage, prevStage }) {
+function Adresslogin({ formikprops, nextStage, prevStage }) {
+  console.log("fp", formikprops);
+  const validateProfile = () => {
+    formikprops.setTouched({
+      houseno: true,
+      country: true,
+      city: true,
+      state: true,
+    });
+    formikprops.validateField("houseno");
+    formikprops.validateField("country");
+    formikprops.validateField("city");
+    formikprops.validateField("state");
+
+    if (
+      !(
+        formikprops.errors["houseno"] ||
+        formikprops.errors["country"] ||
+        formikprops.errors["city"] ||
+        formikprops.errors["state"]
+      )
+    ) {
+      nextStage();
+    }
+  };
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      console.log("Latitude is :", position.coords.latitude);
+      console.log("Longitude is :", position.coords.longitude);
+    });
+  }, []);
+
   return (
     <>
       <div class="address-section">
@@ -23,13 +55,18 @@ function Adresslogin({ nextStage, prevStage }) {
                       fill="#606734"
                     />
                   </svg>
-                  <input
-                    class="search-box-input"
-                    type="text"
-                    placeholder="Serch Your Rasoi’s Locality"
-                    id="search"
-                    name="search"
-                  />
+                  <Form>
+                    <Field
+                      class="search-box-input"
+                      type="text"
+                      placeholder="Serch Your Rasoi’s Locality"
+                      id="search"
+                      name="search"
+                    />
+                    <ErrorMessage name="search">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                  </Form>
                   <span class="location">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -59,6 +96,7 @@ function Adresslogin({ nextStage, prevStage }) {
                       scrolling="no"
                       marginheight="0"
                       marginwidth="0"
+                      onChange={(e) => console.log("ww", e)}
                       src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=1%20Grafton%20Street,%20Dublin,%20Ireland+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
                     >
                       <a href="https://www.maps.ie/distance-area-calculator.html">
@@ -71,66 +109,87 @@ function Adresslogin({ nextStage, prevStage }) {
             </div>
             <div class="col-6">
               <div class="adress-form-section">
-                <div class="input-field">
-                  <label for="houseno">House Number *</label>
-                  <input
-                    type="text"
-                    placeholder="Enter House Number"
-                    name="houseno"
-                    required
-                  />
-                </div>
-                <div class="input-field">
-                  <label for="area">Area, Street, Sector</label>
-                  <input
-                    type="text"
-                    placeholder="Select Here"
-                    name="area"
-                    required
-                  />
-                </div>
-                <div class="input-field">
-                  <label for="landmark">Land Mark</label>
-                  <input
-                    type="text"
-                    placeholder="Enter Land Mark"
-                    name="landmark"
-                    required
-                  />
-                </div>
-                <div class="input-field">
-                  <label for="country">Country*</label>
-                  <select name="country">
-                    <option value="none" selected>
-                      Select Here
-                    </option>
-                    <option value="France">France</option>
-                    <option value="Albania">Albania</option>
-                    <option value="Canada">Canada</option>
-                  </select>
-                </div>
-                <div class="input-field">
-                  <label for="city">City*</label>
-                  <select name="city">
-                    <option value="none" selected>
-                      Select Here
-                    </option>
-                    <option value="surat">surat</option>
-                    <option value="vapi">vapi</option>
-                    <option value="mubai">mubai</option>
-                  </select>
-                </div>
-                <div class="input-field">
-                  <label for="state">State*</label>
-                  <select name="state">
-                    <option value="none" selected>
-                      Select Here
-                    </option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Gujarat">Gujarat</option>
-                  </select>
-                </div>
+                <Form>
+                  <div class="input-field">
+                    <label for="houseno">House Number *</label>
+                    <ErrorMessage name="houseno">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field
+                      type="text"
+                      placeholder="Enter House Number"
+                      name="houseno"
+                      required
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="area">Area, Street, Sector</label>
+                    <ErrorMessage name="area">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field
+                      type="text"
+                      placeholder="Select Here"
+                      name="area"
+                      required
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="landmark">Land Mark</label>
+                    <ErrorMessage name="landmark">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field
+                      type="text"
+                      placeholder="Enter Land Mark"
+                      name="landmark"
+                      required
+                    />
+                  </div>
+                  <div class="input-field">
+                    <label for="country">Country*</label>
+                    <ErrorMessage name="country">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field
+                      as="select"
+                      placeholder="select country"
+                      name="country"
+                    >
+                      <option value="France">France</option>
+                      <option value="Albania">Albania</option>
+                      <option value="Canada">Canada</option>
+                    </Field>
+                  </div>
+                  <div class="input-field">
+                    <label for="city">City*</label>
+                    <ErrorMessage name="city">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field as="select" name="city">
+                      <option value="none" selected>
+                        Select Here
+                      </option>
+                      <option value="surat">surat</option>
+                      <option value="vapi">vapi</option>
+                      <option value="mubai">mubai</option>
+                    </Field>
+                  </div>
+                  <div class="input-field">
+                    <label for="state">State*</label>
+                    <ErrorMessage name="state">
+                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                    </ErrorMessage>
+                    <Field as="select" name="state">
+                      <option value="none" selected>
+                        Select Here
+                      </option>
+                      <option value="Bihar">Bihar</option>
+                      <option value="Assam">Assam</option>
+                      <option value="Gujarat">Gujarat</option>
+                    </Field>
+                  </div>
+                </Form>
               </div>
             </div>
           </div>
@@ -142,7 +201,7 @@ function Adresslogin({ nextStage, prevStage }) {
             >
               Back
             </button>
-            <button type="button" class="next-button" onClick={nextStage}>
+            <button type="button" class="next-button" onClick={validateProfile}>
               Next
             </button>
           </div>

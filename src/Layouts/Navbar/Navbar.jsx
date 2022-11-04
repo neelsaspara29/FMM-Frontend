@@ -1,15 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Navbar() {
   return (
     <>
-      <div class="menu-overlay"></div>
+      <div className="menu-overlay"></div>
       <header>
-        <div class="main-header">
-          <div class="container">
-            <div class="row">
-              <div class="mobile-menu">
-                <div class="menu-icon">
+        <div className="main-header">
+          <div className="container">
+            <div className="row">
+              <div className="mobile-menu">
+                <div className="menu-icon">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
@@ -43,9 +44,9 @@ function Navbar() {
                   </svg>
                 </div>
               </div>
-              <div class="mobile-menu-drawer">
+              <div className="mobile-menu-drawer">
                 <svg
-                  class="close-menu"
+                  className="close-menu"
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
@@ -73,7 +74,7 @@ function Navbar() {
                     </g>
                   </g>
                 </svg>
-                <ul class="menu-wrapper">
+                <ul className="menu-wrapper">
                   <li>
                     <a href="#">Explore Makeup Artists</a>
                   </li>
@@ -85,18 +86,18 @@ function Navbar() {
                   </li>
                 </ul>
               </div>
-              <div class="logo">
+              <div className="logo">
                 <img src="assets/images/logo.png" alt="Logo Image" />
               </div>
-              <div class="search-bar">
+              <div className="search-bar">
                 <input
-                  class="search-box-input"
+                  className="search-box-input"
                   type="text"
                   placeholder="Search.."
                   id="search"
                   name="search"
                 />
-                <button class="search-box-button" aria-label="Search">
+                <button className="search-box-button" aria-label="Search">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -115,8 +116,8 @@ function Navbar() {
                   </svg>
                 </button>
               </div>
-              <div class="menu-section">
-                <ul class="menu-wrapper">
+              <div className="menu-section">
+                <ul className="menu-wrapper">
                   <li>
                     <a href="#">Explore Makeup Artists</a>
                   </li>
@@ -128,10 +129,10 @@ function Navbar() {
                   </li>
                 </ul>
               </div>
-              <div class="login-button">
-                <a href="#" class="button">
+              <div className="login-button">
+                <Link to="/artistlogin" className="button">
                   login
-                </a>
+                </Link>
               </div>
             </div>
           </div>

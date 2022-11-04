@@ -25,7 +25,8 @@ function Artistlogin() {
       <Formik
         initialValues={artistlogininitialvalues}
         validationSchema={artistloginschema}
-        validateOnBlur={false}
+        // validateOnBlur={false}
+        // validateOnChange={false}
       >
         {(formikprops) => {
           return (

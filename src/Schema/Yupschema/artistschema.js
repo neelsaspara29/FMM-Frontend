@@ -12,6 +12,14 @@ const artistloginschema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     phone: Yup.string().required('Required'),
     gender: Yup.string().required('Required'),
-    message: Yup.string().required('Required'),
+    search: Yup.string().required('Required'),
+    houseno: Yup.string().required('Required'),
+    country: Yup.string().required('Required'),
+    city: Yup.string().required('Required'),
+    state: Yup.string().required('Required'),
+    price: Yup.string().required('Required'),
+    experience: Yup.string().required('Required'),
+
+
 });
 export default artistloginschema;

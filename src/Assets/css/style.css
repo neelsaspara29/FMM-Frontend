@@ -1426,6 +1426,7 @@ select {
     border: none;
     margin-top: 78px;
     margin-bottom: 60px;
+    cursor: pointer;
 }
 
 .main-login-section .col-6:nth-child(2) {
@@ -1462,7 +1463,7 @@ select {
     -ms-flex-align: center;
     align-items: center;
     opacity: 0;
-    visibility: hidden;
+    visibility: visible;
 }
 
 .image-model .image-model-wrapper {
@@ -1537,7 +1538,7 @@ select {
 }
 
 .upload-image, .close-model {
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 .image-model .model-center .text span {

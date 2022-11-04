@@ -5,6 +5,24 @@ export default {
     phone: "",
     email: "",
     message: "",
-    gender: ""
+    gender: "",
+    search: "",
+    houseno: "",
+    area: "",
+    landmark: "",
+    country: "",
+    city: "",
+    state: "",
+    services: [],
+    price: "",
+    certified: "",
+    uploadcertificate: "",
+    experience: "",
+    style: "",
+    workingstate: "",
+    brand: "",
+    profile: "",
+
+
 
 }
