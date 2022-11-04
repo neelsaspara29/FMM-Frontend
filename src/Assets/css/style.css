@@ -2157,6 +2157,10 @@ input[type=checkbox] + label:before {
     object-fit: cover;
 }
 
+.blog-list-artists {
+    background-color: white;
+}
+
 .blog-list-artists .section-title {
     font-family: 'Praysire';
     font-style: normal;

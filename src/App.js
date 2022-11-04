@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Footer from "./Layouts/Footer/Footer";
 import Navbar from "./Layouts/Navbar/Navbar";
+import Blogroutes from "./Routes/Blogs/Blogroutes";
 import Faqroutes from "./Routes/Faq/Faqroutes";
 import Homeroutes from "./Routes/Home/Homeroutes";
 import Artistloginroutes from "./Routes/Login/Artist/Artistloginroutes";
@@ -26,6 +27,7 @@ function App() {
       <Artistloginroutes />
       <Faqroutes />
       <PrivacyPolicyroutes />
+      <Blogroutes />
 
       <Footer />
     </>
