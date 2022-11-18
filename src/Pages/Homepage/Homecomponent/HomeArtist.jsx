@@ -6,22 +6,19 @@ function HomeArtist() {
   const swiper = useSwiper();
   return (
     <>
-      <section class="artists-section">
-        <div class="container">
-          <h2 class="section-title">
+      <section className="artists-section">
+        <div className="container">
+          <h2 className="section-title">
             artists in demand
-            <a href="#" class="view-all-link">
+            <a href="#" className="view-all-link">
               View All
             </a>
           </h2>
-          <div class="artists-section-inner">
-            
-                <SwiperArtist />
-              {/* </div>
-              <div class="swiper-pagination"></div>
+          <div className="artists-section-inner">
+            <SwiperArtist />
+            {/* </div>
+              <div className="swiper-pagination"></div>
             </div> */}
-      
-            
           </div>
         </div>
       </section>

@@ -40,15 +40,15 @@ function SwiperArtist() {
   }, []);
   return (
     <>
-      <div class="swiper main-artists-slider">
-        <div class="swiper-wrapper">
-          <div class="slider-item swiper-slide">
-            <div class="slide-wrapper">
-              <div class="image-section">
-                <div class="images">
+      <div className="swiper main-artists-slider">
+        <div className="swiper-wrapper">
+          <div className="slider-item swiper-slide">
+            <div className="slide-wrapper">
+              <div className="image-section">
+                <div className="images">
                   <img src="assets/images/artist-img-1.png" alt="Images" />
                 </div>
-                <div class="reviews">
+                <div className="reviews">
                   4.4
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ function SwiperArtist() {
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="heart"
+                  className="heart"
                   width="18"
                   height="15"
                   viewBox="0 0 18 15"
@@ -74,18 +74,18 @@ function SwiperArtist() {
                   <path
                     d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div class="content-section">
-                <h3 class="title">
+              <div className="content-section">
+                <h3 className="title">
                   Sweety Khanna
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="green-icon"
+                    className="green-icon"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
@@ -97,11 +97,11 @@ function SwiperArtist() {
                     />
                   </svg>
                 </h3>
-                <div class="location">
-                  <span class="location-section">
+                <div className="location">
+                  <span className="location-section">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="location-svg"
+                      className="location-svg"
                       width="6"
                       height="7"
                       viewBox="0 0 6 7"
@@ -114,26 +114,28 @@ function SwiperArtist() {
                     </svg>
                     NEW DELHI,IND
                   </span>
-                  <span class="km">1.2 KM</span>
+                  <span className="km">1.2 KM</span>
                 </div>
-                <div class="tag">
+                <div className="tag">
                   <span>Certified Artist</span>
                   <span>Photoshoot Makeup</span>
                   <span>Hair Styling</span>
                   <span>Studio</span>
                   <span>Travels to venue</span>
                 </div>
-                <div class="services-text">Services Starting at : ₹5000</div>
+                <div className="services-text">
+                  Services Starting at : ₹5000
+                </div>
               </div>
             </div>
           </div>
-          <div class="slider-item swiper-slide">
-            <div class="slide-wrapper">
-              <div class="image-section">
-                <div class="images">
+          <div className="slider-item swiper-slide">
+            <div className="slide-wrapper">
+              <div className="image-section">
+                <div className="images">
                   <img src="assets/images/artist-img-2.png" alt="Images" />
                 </div>
-                <div class="reviews">
+                <div className="reviews">
                   4.4
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -150,7 +152,7 @@ function SwiperArtist() {
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="heart"
+                  className="heart"
                   width="18"
                   height="15"
                   viewBox="0 0 18 15"
@@ -159,18 +161,18 @@ function SwiperArtist() {
                   <path
                     d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div class="content-section">
-                <h3 class="title">
+              <div className="content-section">
+                <h3 className="title">
                   Sweety Khanna
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="green-icon"
+                    className="green-icon"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
@@ -182,11 +184,11 @@ function SwiperArtist() {
                     />
                   </svg>
                 </h3>
-                <div class="location">
-                  <span class="location-section">
+                <div className="location">
+                  <span className="location-section">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="location-svg"
+                      className="location-svg"
                       width="6"
                       height="7"
                       viewBox="0 0 6 7"
@@ -199,26 +201,28 @@ function SwiperArtist() {
                     </svg>
                     NEW DELHI,IND
                   </span>
-                  <span class="km">1.2 KM</span>
+                  <span className="km">1.2 KM</span>
                 </div>
-                <div class="tag">
+                <div className="tag">
                   <span>Certified Artist</span>
                   <span>Photoshoot Makeup</span>
                   <span>Hair Styling</span>
                   <span>Studio</span>
                   <span>Travels to venue</span>
                 </div>
-                <div class="services-text">Services Starting at : ₹5000</div>
+                <div className="services-text">
+                  Services Starting at : ₹5000
+                </div>
               </div>
             </div>
           </div>
-          <div class="slider-item swiper-slide">
-            <div class="slide-wrapper">
-              <div class="image-section">
-                <div class="images">
+          <div className="slider-item swiper-slide">
+            <div className="slide-wrapper">
+              <div className="image-section">
+                <div className="images">
                   <img src="assets/images/artist-img-3.png" alt="Images" />
                 </div>
-                <div class="reviews">
+                <div className="reviews">
                   4.4
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +239,7 @@ function SwiperArtist() {
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="heart"
+                  className="heart"
                   width="18"
                   height="15"
                   viewBox="0 0 18 15"
@@ -244,18 +248,18 @@ function SwiperArtist() {
                   <path
                     d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div class="content-section">
-                <h3 class="title">
+              <div className="content-section">
+                <h3 className="title">
                   Sweety Khanna
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="green-icon"
+                    className="green-icon"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
@@ -267,11 +271,11 @@ function SwiperArtist() {
                     />
                   </svg>
                 </h3>
-                <div class="location">
-                  <span class="location-section">
+                <div className="location">
+                  <span className="location-section">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="location-svg"
+                      className="location-svg"
                       width="6"
                       height="7"
                       viewBox="0 0 6 7"
@@ -284,26 +288,28 @@ function SwiperArtist() {
                     </svg>
                     NEW DELHI,IND
                   </span>
-                  <span class="km">1.2 KM</span>
+                  <span className="km">1.2 KM</span>
                 </div>
-                <div class="tag">
+                <div className="tag">
                   <span>Certified Artist</span>
                   <span>Photoshoot Makeup</span>
                   <span>Hair Styling</span>
                   <span>Studio</span>
                   <span>Travels to venue</span>
                 </div>
-                <div class="services-text">Services Starting at : ₹5000</div>
+                <div className="services-text">
+                  Services Starting at : ₹5000
+                </div>
               </div>
             </div>
           </div>
-          <div class="slider-item swiper-slide">
-            <div class="slide-wrapper">
-              <div class="image-section">
-                <div class="images">
+          <div className="slider-item swiper-slide">
+            <div className="slide-wrapper">
+              <div className="image-section">
+                <div className="images">
                   <img src="assets/images/artist-img-4.png" alt="Images" />
                 </div>
-                <div class="reviews">
+                <div className="reviews">
                   4.4
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -320,7 +326,7 @@ function SwiperArtist() {
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="heart"
+                  className="heart"
                   width="18"
                   height="15"
                   viewBox="0 0 18 15"
@@ -329,18 +335,18 @@ function SwiperArtist() {
                   <path
                     d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div class="content-section">
-                <h3 class="title">
+              <div className="content-section">
+                <h3 className="title">
                   Sweety Khanna
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="green-icon"
+                    className="green-icon"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
@@ -352,11 +358,11 @@ function SwiperArtist() {
                     />
                   </svg>
                 </h3>
-                <div class="location">
-                  <span class="location-section">
+                <div className="location">
+                  <span className="location-section">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="location-svg"
+                      className="location-svg"
                       width="6"
                       height="7"
                       viewBox="0 0 6 7"
@@ -369,26 +375,28 @@ function SwiperArtist() {
                     </svg>
                     NEW DELHI,IND
                   </span>
-                  <span class="km">1.2 KM</span>
+                  <span className="km">1.2 KM</span>
                 </div>
-                <div class="tag">
+                <div className="tag">
                   <span>Certified Artist</span>
                   <span>Photoshoot Makeup</span>
                   <span>Hair Styling</span>
                   <span>Studio</span>
                   <span>Travels to venue</span>
                 </div>
-                <div class="services-text">Services Starting at : ₹5000</div>
+                <div className="services-text">
+                  Services Starting at : ₹5000
+                </div>
               </div>
             </div>
           </div>
-          <div class="slider-item swiper-slide">
-            <div class="slide-wrapper">
-              <div class="image-section">
-                <div class="images">
+          <div className="slider-item swiper-slide">
+            <div className="slide-wrapper">
+              <div className="image-section">
+                <div className="images">
                   <img src="assets/images/artist-img-1.png" alt="Images" />
                 </div>
-                <div class="reviews">
+                <div className="reviews">
                   4.4
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -405,7 +413,7 @@ function SwiperArtist() {
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="heart"
+                  className="heart"
                   width="18"
                   height="15"
                   viewBox="0 0 18 15"
@@ -414,18 +422,18 @@ function SwiperArtist() {
                   <path
                     d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"
                     stroke="white"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <div class="content-section">
-                <h3 class="title">
+              <div className="content-section">
+                <h3 className="title">
                   Sweety Khanna
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    class="green-icon"
+                    className="green-icon"
                     width="14"
                     height="14"
                     viewBox="0 0 14 14"
@@ -437,11 +445,11 @@ function SwiperArtist() {
                     />
                   </svg>
                 </h3>
-                <div class="location">
-                  <span class="location-section">
+                <div className="location">
+                  <span className="location-section">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      class="location-svg"
+                      className="location-svg"
                       width="6"
                       height="7"
                       viewBox="0 0 6 7"
@@ -454,22 +462,24 @@ function SwiperArtist() {
                     </svg>
                     NEW DELHI,IND
                   </span>
-                  <span class="km">1.2 KM</span>
+                  <span className="km">1.2 KM</span>
                 </div>
-                <div class="tag">
+                <div className="tag">
                   <span>Certified Artist</span>
                   <span>Photoshoot Makeup</span>
                   <span>Hair Styling</span>
                   <span>Studio</span>
                   <span>Travels to venue</span>
                 </div>
-                <div class="services-text">Services Starting at : ₹5000</div>
+                <div className="services-text">
+                  Services Starting at : ₹5000
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev">
+        <div className="swiper-pagination"></div>
+        <div className="swiper-button-prev">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -489,7 +499,7 @@ function SwiperArtist() {
             </g>
           </svg>
         </div>
-        <div class="swiper-button-next">
+        <div className="swiper-button-next">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"

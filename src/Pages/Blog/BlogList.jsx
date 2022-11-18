@@ -6,30 +6,32 @@ import NewsLatter from "./BlogListComponent/NewsLatter";
 
 const BlogList = () => {
     return (
-        <>
-            <div class="banner-section blog-banner">
-        <div class="container">
-            <h2 class="banner-title">Wall Of Findmymua</h2>
+      <>
+        <div className="banner-section blog-banner">
+          <div className="container">
+            <h2 className="banner-title">Wall Of Findmymua</h2>
+          </div>
         </div>
-    </div>
 
-    <div class="breadcrumb">
-        <div class="container">
+        <div className="breadcrumb">
+          <div className="container">
             <ul>
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-                <li>
-                    <a href="blog-list.html" class="active">Blog</a>
-                </li>
+              <li>
+                <a href="index.html">Home</a>
+              </li>
+              <li>
+                <a href="blog-list.html" className="active">
+                  Blog
+                </a>
+              </li>
             </ul>
+          </div>
         </div>
-    </div>
-    <Blogs />
-    <ArtistInDemand />
-    <NewsLatter />
-        </>
-    )
+        <Blogs />
+        <ArtistInDemand />
+        <NewsLatter />
+      </>
+    );
 }
 
 export default BlogList

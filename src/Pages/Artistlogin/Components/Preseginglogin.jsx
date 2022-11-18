@@ -16,16 +16,16 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
   };
   return (
     <>
-      <div class="main-presaging-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <div class="col-wrapper">
-                <h2 class="presaging-title">Presaging</h2>
+      <div className="main-presaging-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <div className="col-wrapper">
+                <h2 className="presaging-title">Presaging</h2>
               </div>
-              <div class="presaging-form-section">
-                <Form class="presaging-form">
-                  <div class="input-field">
+              <div className="presaging-form-section">
+                <Form className="presaging-form">
+                  <div className="input-field">
                     <label for="services">Services starting at (in ₹)*</label>
                     <ErrorMessage name="price">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -37,7 +37,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       required
                     />
                   </div>
-                  <div class="input-field-checkbox checkbox-input">
+                  <div className="input-field-checkbox checkbox-input">
                     <Field
                       type="checkbox"
                       id="certified"
@@ -49,8 +49,8 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                   </div>
-                  <div class="field-button">
-                    <div class="input-field">
+                  <div className="field-button">
+                    <div className="input-field">
                       <label for="uploadcertificate">
                         Upload your certificate
                       </label>
@@ -64,9 +64,9 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                         required
                       />
                     </div>
-                    <button class="upload">upload</button>
+                    <button className="upload">upload</button>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="experience">Experience*</label>
                     <ErrorMessage name="experience">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -80,7 +80,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       <option value="10">10</option>
                     </Field>
                   </div>
-                  <div class="input-field-checkbox checkbox-input">
+                  <div className="input-field-checkbox checkbox-input">
                     <Field
                       type="checkbox"
                       id="style"
@@ -92,7 +92,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <ErrorMessage name="workingstate">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
@@ -105,7 +105,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       <option value="Gujarat">Gujarat</option>
                     </Field>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="state">What brands do you use?</label>
                     <ErrorMessage name="brand">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -119,12 +119,12 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                       <option value="Amora">Amora</option>
                     </Field>
                   </div>
-                  <div class="input-field-checkbox">
+                  <div className="input-field-checkbox">
                     <Field
                       type="checkbox"
                       id="profile"
                       name="profile"
-                      value="Bike"
+                      value="yes"
                     />
                     <label for="profile">
                       I dont want to show this in my profile
@@ -136,22 +136,22 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                 </Form>
               </div>
             </div>
-            <div class="col-6">
-              <div class="image-section">
+            <div className="col-6">
+              <div className="image-section">
                 <img src="assets/images/presaging-img.png" alt="image" />
               </div>
             </div>
-            <div class="button-section">
+            <div className="button-section">
               <button
                 type="button"
-                class="next-button back-button"
+                className="next-button back-button"
                 onClick={prevStage}
               >
                 Back
               </button>
               <button
                 type="button"
-                class="next-button"
+                className="next-button"
                 onClick={validateProfile}
               >
                 Next

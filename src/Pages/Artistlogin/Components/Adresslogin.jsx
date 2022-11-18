@@ -35,15 +35,15 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
 
   return (
     <>
-      <div class="address-section">
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <div class="map-section">
+      <div className="address-section">
+        <div className="container">
+          <div className="row">
+            <div className="col-6">
+              <div className="map-section">
                 <h2>Address Details</h2>
-                <div class="serch-bar">
+                <div className="serch-bar">
                   <svg
-                    class="location-search-icon"
+                    className="location-search-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     width="18"
                     height="17"
@@ -57,7 +57,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                   </svg>
                   <Form>
                     <Field
-                      class="search-box-input"
+                      className="search-box-input"
                       type="text"
                       placeholder="Serch Your Rasoi’s Locality"
                       id="search"
@@ -67,7 +67,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                   </Form>
-                  <span class="location">
+                  <span className="location">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="25"
@@ -87,7 +87,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                     Location
                   </span>
                 </div>
-                <div class="map-img">
+                <div className="map-img">
                   <div style={{ width: "100%" }}>
                     <iframe
                       width="100%"
@@ -107,10 +107,10 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                 </div>
               </div>
             </div>
-            <div class="col-6">
-              <div class="adress-form-section">
+            <div className="col-6">
+              <div className="adress-form-section">
                 <Form>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="houseno">House Number *</label>
                     <ErrorMessage name="houseno">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -122,7 +122,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       required
                     />
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="area">Area, Street, Sector</label>
                     <ErrorMessage name="area">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -134,7 +134,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       required
                     />
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="landmark">Land Mark</label>
                     <ErrorMessage name="landmark">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -146,7 +146,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       required
                     />
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="country">Country*</label>
                     <ErrorMessage name="country">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -161,7 +161,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       <option value="Canada">Canada</option>
                     </Field>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="city">City*</label>
                     <ErrorMessage name="city">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -175,7 +175,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                       <option value="mubai">mubai</option>
                     </Field>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <label for="state">State*</label>
                     <ErrorMessage name="state">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
@@ -193,15 +193,19 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
               </div>
             </div>
           </div>
-          <div class="button-section">
+          <div className="button-section">
             <button
               type="button"
-              class="next-button back-button"
+              className="next-button back-button"
               onClick={prevStage}
             >
               Back
             </button>
-            <button type="button" class="next-button" onClick={validateProfile}>
+            <button
+              type="button"
+              className="next-button"
+              onClick={validateProfile}
+            >
               Next
             </button>
           </div>

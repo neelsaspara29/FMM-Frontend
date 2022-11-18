@@ -1,7 +1,10 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 function Navbar() {
+  const state = useSelector((state) => state.artistloginReducer);
+  console.log(state);
   return (
     <>
       <div className="menu-overlay"></div>
@@ -15,13 +18,12 @@ function Navbar() {
                     xmlns="http://www.w3.org/2000/svg"
                     version="1.1"
                     xmlnsXlink="http://www.w3.org/1999/xlink"
-                    xmlnsSvgjs="http://svgjs.com/svgjs"
+                    xmlnssvgjs="http://svgjs.com/svgjs"
                     width="20"
                     height="20"
                     x="0"
                     y="0"
                     viewBox="0 0 384 384"
-                    // style="enable-background:new 0 0 512 512"
                     xmlSpace="preserve"
                   >
                     <g>
@@ -50,7 +52,7 @@ function Navbar() {
                   xmlns="http://www.w3.org/2000/svg"
                   version="1.1"
                   xmlnsXlink="http://www.w3.org/1999/xlink"
-                  xmlnsSvgjs="http://svgjs.com/svgjs"
+                  xmlnssvgjs="http://svgjs.com/svgjs"
                   width="16"
                   height="16"
                   x="0"
@@ -76,18 +78,23 @@ function Navbar() {
                 </svg>
                 <ul className="menu-wrapper">
                   <li>
-                    <a href="#">Explore Makeup Artists</a>
+                    <Link to="/explore-makeupartist">
+                      Explore Makeup Artists
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Blog</a>
+                    <Link to="/blog-list">Blog</Link>
                   </li>
                   <li>
-                    <a href="#">Artist corner</a>
+                    <Link>Artist corner</Link>
                   </li>
                 </ul>
               </div>
-              <div  class="logo cursor-pointer">
-                <img src="assets/images/logo.png" alt="Logo Image" />
+              <div className="logo cursor-pointer">
+                <Link to="/">
+                  {" "}
+                  <img src="assets/images/logo.png" alt="Logo Image" />
+                </Link>
               </div>
               <div className="search-bar">
                 <input
@@ -119,20 +126,26 @@ function Navbar() {
               <div className="menu-section">
                 <ul className="menu-wrapper">
                   <li>
-                    <a href="#">Explore Makeup Artists</a>
+                    <Link to="/explore-makeupartist">
+                      Explore Makeup Artists
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">Blog</a>
+                    <Link to="/blog-list">Blog</Link>
                   </li>
                   <li>
-                    <a href="#">Artist corner</a>
+                    <Link>Artist corner</Link>
                   </li>
                 </ul>
               </div>
               <div className="login-button">
-                <Link to="/artistlogin" className="button">
-                  login
-                </Link>
+                {state.username ? (
+                  <>{<button className="button">{state.username} </button>}</>
+                ) : (
+                  <Link to="/userlogin" className="button">
+                    login
+                  </Link>
+                )}
               </div>
             </div>
           </div>

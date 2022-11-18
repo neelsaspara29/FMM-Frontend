@@ -12,15 +12,15 @@ function Profileimage({ open,close }) {
             width="15"
             height="15"
             viewBox="0 0 15 15"
-                      fill="none"
-                      onClick={close}
+            fill="none"
+            onClick={close}
           >
             <path
               d="M1 1L14 14M14 1L1 14L14 1Z"
               stroke="#1A1A1A"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             />
           </svg>
         </div>

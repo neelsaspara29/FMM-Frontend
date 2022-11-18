@@ -1,36 +1,37 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <>
-      <div class="footer-section">
-        <div class="container">
-          <div class="copyrights">
+      <div className="footer-section">
+        <div className="container">
+          <div className="copyrights">
             © 2022 findmymua.in. All rights reserved.
           </div>
-          <div class="row">
-            <ul class="footer-menu">
+          <div className="row">
+            <ul className="footer-menu">
               <li>
-                <a href="#">About us</a>
+                <Link to="/aboutus">About us</Link>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <Link to="/contactus">Contact Us</Link>
               </li>
               <li>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <a href="#">Terms of Service</a>
+                <Link to="#">Terms of Service</Link>
               </li>
               <li>
-                <a href="/faq">FAQs</a>
+                <Link to="/faq">FAQs</Link>
               </li>
             </ul>
-            <div class="footer-social-icon">
-              <span class="social-title">Find us on:</span>
+            <div className="footer-social-icon">
+              <span className="social-title">Find us on:</span>
               <ul>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -43,10 +44,10 @@ function Footer() {
                         fill="white"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="11"
@@ -59,10 +60,10 @@ function Footer() {
                         fill="white"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="20"
@@ -75,10 +76,10 @@ function Footer() {
                         fill="white"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#">
+                  <Link to="#">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="22"
@@ -91,7 +92,7 @@ function Footer() {
                         fill="white"
                       />
                     </svg>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>

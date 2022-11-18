@@ -21,15 +21,15 @@ function SwiperHome({ setSwiperActiveidx }) {
         speed={800}
       >
         <SwiperSlide>
-          <div class="slider-item swiper-slide">
+          <div className="slider-item swiper-slide">
             <img src="assets/images/slider-img-1.png" alt="Slider Image" />
-            <div class="content-section">
-              <h2 class="main-title">Makeup Artist?</h2>
-              <p class="sub-text">
+            <div className="content-section">
+              <h2 className="main-title">Makeup Artist?</h2>
+              <p className="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div class="button">
+            <div className="button">
               <a href="#">
                 Find a makeup artist
                 <svg
@@ -50,15 +50,15 @@ function SwiperHome({ setSwiperActiveidx }) {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div class="slider-item swiper-slide">
+          <div className="slider-item swiper-slide">
             <img src="assets/images/slider-img-2.png" alt="Slider Image" />
-            <div class="content-section">
-              <h2 class="main-title">Makeup Artist?</h2>
-              <p class="sub-text">
+            <div className="content-section">
+              <h2 className="main-title">Makeup Artist?</h2>
+              <p className="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div class="button">
+            <div className="button">
               <a href="#">
                 Find a makeup artist
                 <svg
@@ -78,15 +78,15 @@ function SwiperHome({ setSwiperActiveidx }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div class="slider-item swiper-slide">
+          <div className="slider-item swiper-slide">
             <img src="assets/images/slider-img-3.png" alt="Slider-Image" />
-            <div class="content-section">
-              <h2 class="main-title">Makeup Artist?</h2>
-              <p class="sub-text">
+            <div className="content-section">
+              <h2 className="main-title">Makeup Artist?</h2>
+              <p className="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div class="button">
+            <div className="button">
               <a href="#">
                 Find a makeup artist
                 <svg

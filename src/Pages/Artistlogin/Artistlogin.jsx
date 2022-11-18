@@ -18,10 +18,13 @@ function Artistlogin() {
   const prevStage = () => {
     setStage(stage - 1);
   };
+  const changeStage = (stageNo) => {
+    setStage(stageNo);
+  };
   return (
     <>
       <Dashboardentry />
-      <Progressbar stage={stage} />
+      <Progressbar stage={stage} changeStage={changeStage} />
       <Formik
         initialValues={artistlogininitialvalues}
         validationSchema={artistloginschema}

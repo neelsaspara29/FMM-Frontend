@@ -11,6 +11,7 @@ function Blogroutes() {
       <Routes>
         <Route path="/blog-list" element={<BlogList />}></Route>
         <Route path="/blog-details" element={<BlogDetails />}></Route>
+        
       </Routes>
     </>
   );

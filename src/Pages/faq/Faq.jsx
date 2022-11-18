@@ -50,14 +50,14 @@ const Faq = () => {
   return (
     <>
       <div>
-        <div class="breadcrumb">
-          <div class="container">
+        <div className="breadcrumb">
+          <div className="container">
             <ul>
               <li>
                 <a href="index.html">Home</a>
               </li>
               <li>
-                <a href="faq.html" class="active">
+                <a href="faq.html" className="active">
                   Faq’s
                 </a>
               </li>
@@ -65,21 +65,26 @@ const Faq = () => {
           </div>
         </div>
 
-        <section onMouseEnter={() => {Start()}} class="faq-section">
-          <div class="container">
-            <h2 class="section-heading">Frequently Asked Questions</h2>
-            <div class="row">
-              <div class="col-12">
-                <div  class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+        <section
+          onMouseEnter={() => {
+            Start();
+          }}
+          className="faq-section"
+        >
+          <div className="container">
+            <h2 className="section-heading">Frequently Asked Questions</h2>
+            <div className="row">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -93,9 +98,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -106,17 +111,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -130,9 +135,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -142,17 +147,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -166,9 +171,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -178,17 +183,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -202,9 +207,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -214,17 +219,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -238,9 +243,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -250,17 +255,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -274,9 +279,9 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
@@ -286,17 +291,17 @@ const Faq = () => {
                   </div>
                 </div>
               </div>
-              <div class="col-12">
-                <div class="col-wrapper">
-                  <div class="top-wrapper">
-                    <div class="question-wrapper">
-                      <h5 class="question">
+              <div className="col-12">
+                <div className="col-wrapper">
+                  <div className="top-wrapper">
+                    <div className="question-wrapper">
+                      <h5 className="question">
                         <span>Q:</span>
                         Lorem Ipsum is simply dummy text of the printing and
                         typesetting industry?
                       </h5>
                       <svg
-                        class="detail-open-arrow"
+                        className="detail-open-arrow"
                         xmlns="http://www.w3.org/2000/svg"
                         width="17"
                         height="11"
@@ -310,16 +315,15 @@ const Faq = () => {
                       </svg>
                     </div>
                   </div>
-                  <div class="bottom-wrapper">
-                    <div class="answer-wrapper">
-                      <p class="answer">
+                  <div className="bottom-wrapper">
+                    <div className="answer-wrapper">
+                      <p className="answer">
                         <span>A:</span>Lorem Ipsum is simply dummy text of the
                         printing and typesetting industry. Lorem Ipsum is the
                         simply dummy text of the printing and typesetting
                         industry.
                       </p>
                     </div>
-                    
                   </div>
                 </div>
               </div>
@@ -327,8 +331,6 @@ const Faq = () => {
           </div>
         </section>
       </div>
-      
-      
     </>
   );
 };

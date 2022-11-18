@@ -1,11 +1,11 @@
 export default {
-
+    profileimage: "",
     firstname: "",
     lastname: "",
+    gender: "",
     phone: "",
     email: "",
     message: "",
-    gender: "",
     search: "",
     houseno: "",
     area: "",
@@ -22,7 +22,8 @@ export default {
     workingstate: "",
     brand: "",
     profile: "",
-
+    photos: [],
+    videos:[]
 
 
 }

@@ -2,10 +2,10 @@ import React from "react";
 
 function Dashboardentry() {
   return (
-    <div class="banner-section">
-      <div class="container">
-        <h2 class="banner-title">Partner with us</h2>
-        <p class="description">
+    <div className="banner-section">
+      <div className="container">
+        <h2 className="banner-title">Partner with us</h2>
+        <p className="description">
           Lorem ipsum, or lipsum as it is sometimes known, is dummy text
         </p>
       </div>

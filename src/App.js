@@ -1,12 +1,17 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
-import Footer from "./Layouts/Footer/Footer";
-import Navbar from "./Layouts/Navbar/Navbar";
-import Blogroutes from "./Routes/Blogs/Blogroutes";
-import Faqroutes from "./Routes/Faq/Faqroutes";
-import Homeroutes from "./Routes/Home/Homeroutes";
-import Artistloginroutes from "./Routes/Login/Artist/Artistloginroutes";
-import PrivacyPolicyroutes from "./Routes/PrivacyPolicyroutes/PrivacyPolicyroutes";
+import Aboutus from "./Pages/Aboutus/Aboutus";
+import Artistlogin from "./Pages/Artistlogin/Artistlogin";
+import BlogDetails from "./Pages/Blog/BlogDetails";
+import BlogList from "./Pages/Blog/BlogList";
+import Contact from "./Pages/Contact/Contact";
+import Exploreartist from "./Pages/ExpoloreArtist/Exploreartist";
+import Faq from "./Pages/faq/Faq";
+import Home from "./Pages/Homepage/Home";
+import Membership from "./Pages/Membership/Membership";
+import PrivacyPolicy from "./Pages/Privacy-Policy/PrivacyPolicy";
+import Userlogin from "./Pages/Userlogin/Userlogin";
+import { Navbarroutes } from "./Routes/Navbar/Navbarroutes";
 
 function App() {
   useEffect(() => {
@@ -21,15 +26,35 @@ function App() {
     };
   }, []);
   return (
-    <>  
-      <Navbar />
-      <Homeroutes />
-      <Artistloginroutes />
-      <Faqroutes />
-      <PrivacyPolicyroutes />
-      <Blogroutes />
+    <>
 
-      <Footer />
+      <Routes>
+        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin"]} />}>
+
+
+          <Route path="/explore-makeupartist" element={<Exploreartist />}></Route>
+          <Route path="/blog-list" element={<BlogList />}></Route>
+          <Route path="/blog-details" element={<BlogDetails />}></Route>
+
+
+
+          <Route path="/" element={<Home />}></Route>
+
+          <Route path="/artistlogin" element={<Artistlogin />}></Route>
+
+          <Route path="/userlogin" element={<Userlogin />}></Route>
+
+          <Route path="/membership" element={<Membership />} />
+
+          {/* Footer Routes */}
+          <Route path="/aboutus" element={<Aboutus />} />
+          <Route path="/contactus" element={<Contact />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
+          <Route path="/faq" element={<Faq />}></Route>
+        </Route>
+      </Routes>
+
+
     </>
   );
 }

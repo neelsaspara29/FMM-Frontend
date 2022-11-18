@@ -1,10 +1,10 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Form, Field, ErrorMessage } from "formik";
 import React, { useState } from "react";
-import Profileimage from "../../../Components/Modals/Profileimage";
-
-function Profilelogin({ formikprops, nextStage, prevStage }) {
+import ReactRoundedImage from "react-rounded-image";
+let savedimg;
+function Profilelogin({ formikprops, nextStage }) {
   console.log("fp", formikprops);
-  const [opened, setOpened] = useState(false);
+  const [profileimg, setProfileimg] = useState(null);
   const validateProfile = () => {
     formikprops.setTouched({
       firstname: true,
@@ -32,14 +32,25 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
       nextStage();
     }
   };
-  const close = () => {
-    setOpened(!opened);
-  };
 
   const openImage = () => {
-    document.querySelector('.image-model').classList.toggle('opened')
-    document.querySelector('body').classList.toggle('opened-drawer')
-  }
+    document.querySelector(".image-model").classList.toggle("opened");
+    document.querySelector("body").classList.toggle("opened-drawer");
+  };
+  const previewimage = (evt) => {
+    const file = evt.target.files[0];
+    console.log("evt", evt.target.files[0]);
+    if (file) {
+      let forpreview = document.getElementById("forpreview");
+      forpreview.src = URL.createObjectURL(file);
+      savedimg = file;
+    }
+  };
+  const saveimg = () => {
+    document.querySelector(".image-model").classList.remove("opened");
+    document.querySelector("body").classList.remove("opened-drawer");
+    setProfileimg(savedimg);
+  };
   return (
     <>
       <div className="main-login-section">
@@ -49,12 +60,25 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
               <div className="col-wrapper">
                 <div className="header-top">
                   <h2 className="login-title">About Me</h2>
-                  <img
-                    className="upload-image"
-                    src="assets/images/login-top-img.png"
-                    alt="image"
-                    onClick={() => setOpened(!opened)}
-                  />
+                  {!profileimg ? (
+                    <img
+                      className="upload-image"
+                      src="assets/images/login-top-img.png"
+                      alt="image"
+                      id="profileimg"
+                      onClick={openImage}
+                    />
+                  ) : (
+                    <ReactRoundedImage
+                      image={URL.createObjectURL(profileimg)}
+                      roundedColor="#C7C7C7"
+                      imageWidth="85"
+                      imageHeight="85"
+                      roundedSize="5"
+                      borderRadius="70"
+                      className="upload-image"
+                    />
+                  )}
                 </div>
               </div>
               <div className="login-form-section">
@@ -204,7 +228,55 @@ function Profilelogin({ formikprops, nextStage, prevStage }) {
           </div>
         </div>
       </div>
-      {opened && <Profileimage open={opened} close={close} />}
+      <div className="image-model">
+        <div className="image-model-wrapper">
+          <div className="model-header">
+            <h2>Add Profile Image</h2>
+            <svg
+              className="close-model"
+              xmlns="http://www.w3.org/2000/svg"
+              width="15"
+              height="15"
+              viewBox="0 0 15 15"
+              fill="none"
+            >
+              <path
+                d="M1 1L14 14M14 1L1 14L14 1Z"
+                stroke="#1A1A1A"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+          <div className="model-center">
+            <input
+              type="file"
+              name="a"
+              id="profileimage"
+              hidden
+              onChange={previewimage}
+            />
+            <img
+              src="assets/images/upload-img.png"
+              id="forpreview"
+              alt="image"
+            />
+            <label htmlFor="profileimage">
+              <div className="text" style={{ cursor: "pointer" }}>
+                Drag or drop a photo <span>Browse</span>
+              </div>
+            </label>
+          </div>
+
+          <div className="model-footer">
+            {" "}
+            <button className="upload-button" onClick={saveimg}>
+              Uplaod Profile Photo
+            </button>
+          </div>
+        </div>
+      </div>
     </>
   );
 }

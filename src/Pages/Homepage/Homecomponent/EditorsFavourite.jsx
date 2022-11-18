@@ -3,16 +3,16 @@ import React from "react";
 function EditorsFavourite() {
   return (
     <>
-      <section class="testimonial-section">
-        <h2 class="section-title">Editor's Favourite</h2>
-        <div class="row">
-          <div class="col-6">
-            <div class="image-section">
+      <section className="testimonial-section">
+        <h2 className="section-title">Editor's Favourite</h2>
+        <div className="row">
+          <div className="col-6">
+            <div className="image-section">
               <img src="assets/images/testimonial-img.png" alt="Image" />
-              <div class="image-content">
-                <div class="content-left">
-                  <div class="name">Katrina Kaif</div>
-                  <div class="sub-title">Bollywood Actress</div>
+              <div className="image-content">
+                <div className="content-left">
+                  <div className="name">Katrina Kaif</div>
+                  <div className="sub-title">Bollywood Actress</div>
                 </div>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -29,20 +29,20 @@ function EditorsFavourite() {
               </div>
             </div>
           </div>
-          <div class="col-6">
-            <div class="content-section">
-              <div class="testimonial-top">
+          <div className="col-6">
+            <div className="content-section">
+              <div className="testimonial-top">
                 <img
-                  class="testimonial-img1"
+                  className="testimonial-img1"
                   src="assets/images/testimonial-img-1.png"
                   alt="Image"
                 />
-                <div class="testimonial-right">
-                  <div class="testimonial-name">Katrina Kaif</div>
-                  <div class="testimonial-subtitle">Bollywood actress</div>
+                <div className="testimonial-right">
+                  <div className="testimonial-name">Katrina Kaif</div>
+                  <div className="testimonial-subtitle">Bollywood actress</div>
                 </div>
               </div>
-              <div class="testimonial-description">
+              <div className="testimonial-description">
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Laoreet sagittis, elementum scelerisque tortor interdum tempor
@@ -50,13 +50,13 @@ function EditorsFavourite() {
                   faucibus aliquam, aliquet et Lorem ipsum dolor sit amet. ...
                 </p>
               </div>
-              <div class="testimonial-bottom-section">
+              <div className="testimonial-bottom-section">
                 <img
-                  class="testimonial-img2"
+                  className="testimonial-img2"
                   src="assets/images/testimonial-img-2.png"
                   alt="Image"
                 />
-                <span class="artist-name">Explore the artist</span>
+                <span className="artist-name">Explore the artist</span>
               </div>
             </div>
           </div>
