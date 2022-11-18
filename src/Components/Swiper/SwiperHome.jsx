@@ -1,4 +1,5 @@
 import React from "react";
+import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 function SwiperHome({ setSwiperActiveidx }) {
   return (
@@ -6,6 +7,7 @@ function SwiperHome({ setSwiperActiveidx }) {
       <Swiper
         effect={"cube"}
         grabCursor={true}
+      modules = {[Navigation, Pagination]}
         centeredSlides={true}
         slidesPerView={"auto"}
         coverflowEffect={{
@@ -19,17 +21,22 @@ function SwiperHome({ setSwiperActiveidx }) {
         onSlideChange={(e) => setSwiperActiveidx(e.activeIndex)}
         className="mySwiper"
         speed={800}
+        pagination = {
+          {
+            clickable: true
+          }
+        }
       >
         <SwiperSlide>
-          <div className="slider-item swiper-slide">
+          <div class="slider-item swiper-slide">
             <img src="assets/images/slider-img-1.png" alt="Slider Image" />
-            <div className="content-section">
-              <h2 className="main-title">Makeup Artist?</h2>
-              <p className="sub-text">
+            <div class="content-section">
+              <h2 class="main-title">Makeup Artist?</h2>
+              <p class="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div className="button">
+            <div class="button">
               <a href="#">
                 Find a makeup artist
                 <svg
@@ -50,15 +57,15 @@ function SwiperHome({ setSwiperActiveidx }) {
         </SwiperSlide>
 
         <SwiperSlide>
-          <div className="slider-item swiper-slide">
+          <div class="slider-item swiper-slide">
             <img src="assets/images/slider-img-2.png" alt="Slider Image" />
-            <div className="content-section">
-              <h2 className="main-title">Makeup Artist?</h2>
-              <p className="sub-text">
+            <div class="content-section">
+              <h2 class="main-title">Makeup Artist?</h2>
+              <p class="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div className="button">
+            <div class="button">
               <a href="#">
                 Find a makeup artist
                 <svg
@@ -78,15 +85,15 @@ function SwiperHome({ setSwiperActiveidx }) {
           </div>
         </SwiperSlide>
         <SwiperSlide>
-          <div className="slider-item swiper-slide">
+          <div class="slider-item swiper-slide">
             <img src="assets/images/slider-img-3.png" alt="Slider-Image" />
-            <div className="content-section">
-              <h2 className="main-title">Makeup Artist?</h2>
-              <p className="sub-text">
+            <div class="content-section">
+              <h2 class="main-title">Makeup Artist?</h2>
+              <p class="sub-text">
                 Find all you need in the <span>Artist Corner.</span>
               </p>
             </div>
-            <div className="button">
+            <div class="button">
               <a href="#">
                 Find a makeup artist
                 <svg

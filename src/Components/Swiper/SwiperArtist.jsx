@@ -42,7 +42,7 @@ function SwiperArtist() {
     <>
       <div className="swiper main-artists-slider">
         <div className="swiper-wrapper">
-          <div className="slider-item swiper-slide">
+          {/* <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
                 <div className="images">
@@ -128,7 +128,8 @@ function SwiperArtist() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
+          
           <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
