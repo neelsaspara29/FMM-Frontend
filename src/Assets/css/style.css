@@ -614,7 +614,7 @@ body.opened-drawer {
 
  .main-artists-slider  {
     position: static;
-    padding-bottom: 60px;
+    /* padding-bottom: 60px; */
  }
 
  .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after,
@@ -3969,3 +3969,7 @@ input[type=checkbox] + label:before {
     align-items: center;
 }
 /* End user-login.css */
+
+.main-artists-slider > .swiper-wrapper {
+    height: 417px;
+}

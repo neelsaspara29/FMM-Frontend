@@ -1,43 +1,50 @@
 import React, { useEffect, useState } from "react";
-import Swiper from "swiper";
-// import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+// import Swiper from "swiper";
+import { Swiper, SwiperSlide } from "swiper/react";
 import demandartistData from "../../Constants/SupportData/demandartistData";
 import Demandartistcard from "../Cards/Demandartistcard";
 function SwiperArtist() {
+
   const [swiperActiveidx, setSwiperActiveidx] = useState(4);
 
-  useEffect(() => {
-    var artistsSlider = new Swiper(".main-artists-slider", {
-      slidesPerView: 4,
-      grabCursor: true,
-      loop: true,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      autoplay: {
-        delay: 4000,
-      },
-      breakpoints: {
-        200: {
-          slidesPerView: 1,
-        },
-        480: {
-          slidesPerView: 2,
-        },
-        768: {
-          slidesPerView: 3,
-        },
-        991: {
-          slidesPerView: 4,
-        },
-      },
-    });
-  }, []);
+
+  const navigationPrevRef = React.useRef(null)
+  const navigationNextRef = React.useRef(null)
+  const paginationRef = React.useRef(null)
+
+  // useEffect(() => {
+  //   var artistsSlider = new Swiper(".main-artists-slider", {
+  //     slidesPerView: 4,
+  //     grabCursor: true,
+  //     loop: true,
+  //     navigation: {
+  //       nextEl: ".swiper-button-next",
+  //       prevEl: ".swiper-button-prev",
+  //     },
+  //     pagination: {
+  //       el: ".swiper-pagination",
+  //       clickable: true,
+  //     },
+  //     autoplay: {
+  //       delay: 4000,
+  //     },
+  //     breakpoints: {
+  //       200: {
+  //         slidesPerView: 1,
+  //       },
+  //       480: {
+  //         slidesPerView: 2,
+  //       },
+  //       768: {
+  //         slidesPerView: 3,
+  //       },
+  //       991: {
+  //         slidesPerView: 4,
+  //       },
+  //     },
+  //   });
+  // }, []);
   return (
     <>
       <div className="swiper main-artists-slider">
@@ -129,8 +136,8 @@ function SwiperArtist() {
               </div>
             </div>
           </div> */}
-          
-          <div className="slider-item swiper-slide">
+
+          {/* <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
                 <div className="images">
@@ -216,8 +223,8 @@ function SwiperArtist() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="slider-item swiper-slide">
+          </div> */}
+          {/* <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
                 <div className="images">
@@ -303,8 +310,8 @@ function SwiperArtist() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="slider-item swiper-slide">
+          </div> */}
+          {/* <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
                 <div className="images">
@@ -390,8 +397,8 @@ function SwiperArtist() {
                 </div>
               </div>
             </div>
-          </div>
-          <div className="slider-item swiper-slide">
+          </div> */}
+          {/* <div className="slider-item swiper-slide">
             <div className="slide-wrapper">
               <div className="image-section">
                 <div className="images">
@@ -477,10 +484,69 @@ function SwiperArtist() {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div className="swiper-pagination"></div>
-        <div className="swiper-button-prev">
+          </div> */}
+          <Swiper
+        // effect={"cube"}
+        grabCursor={true}
+        // centeredSlides={true}
+        slidesPerView={4}
+       
+        // onSlideChange={(e) => e.activeIndex}
+        loop={true}
+        
+        // nav
+     
+        modules = { [Navigation, Pagination]}
+        speed={800}
+        autoplay={4000}
+        pagination = {{
+          clickable: true
+        }}
+        
+
+        breakpoints={{
+          200: {
+            slidesPerView: 1,
+          },
+          480: {
+            slidesPerView: 2,
+          },
+          768: {
+            slidesPerView: 3,
+          },
+          991: {
+            slidesPerView: 4,
+          },
+        }}
+        // pagination={{ el: paginationRef.current }}
+
+
+        onInit={(swiper) => {
+        swiper.params.navigation.prevEl = navigationPrevRef.current;
+        swiper.params.navigation.nextEl = navigationNextRef.current;
+        // swiper.params.pagination.el = paginationRef.current
+        swiper.navigation.init();
+        swiper.navigation.update();
+        
+      }}
+      >
+        {demandartistData.map(({ img }) => {
+          return (
+            <SwiperSlide>
+              <Demandartistcard src={img} />
+            </SwiperSlide>
+          );
+        })}
+
+
+      <div ref={paginationRef} className="swiper-pagination"></div>
+       
+        
+      </Swiper>
+      </div>
+
+
+        <div ref={navigationPrevRef} className="swiper-button-prev">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -500,7 +566,7 @@ function SwiperArtist() {
             </g>
           </svg>
         </div>
-        <div className="swiper-button-next">
+        <div ref={navigationNextRef} className="swiper-button-next">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="34"
@@ -520,7 +586,12 @@ function SwiperArtist() {
             </g>
           </svg>
         </div>
+
+
       </div>
+        
+        
+
     </>
   );
 }
