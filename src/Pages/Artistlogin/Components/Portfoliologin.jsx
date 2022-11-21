@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { imagePreview } from "../../../Helpers/Functions/imagePreview";
 import { artistlogin } from "../../../Redux/Auth/ArtistAuth/actionCreator";
 import { Slide, toast, ToastContainer, Zoom } from "react-toastify";
 

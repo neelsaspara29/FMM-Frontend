@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Adresslogin from "./Components/Adresslogin";
 import Dashboardentry from "./Components/Dashboardentry";
 import Portfoliologin from "./Components/Portfoliologin";
@@ -9,9 +9,10 @@ import Progressbar from "./Components/Progressbar";
 import Servicelogin from "./Components/Servicelogin";
 import artistlogininitialvalues from "../../Constants/FormInitialvalues/artistlogininitialvalues";
 import artistloginschema from "../../Schema/Yupschema/artistschema";
+import { ApiGet } from "../../Helpers/API/ApiData";
 function Artistlogin() {
   const [stage, setStage] = useState(1);
-
+  const [savedData, setSavedData] = useState({});
   const nextStage = () => {
     setStage(stage + 1);
   };
@@ -21,6 +22,7 @@ function Artistlogin() {
   const changeStage = (stageNo) => {
     setStage(stageNo);
   };
+
   return (
     <>
       <Dashboardentry />
@@ -39,6 +41,7 @@ function Artistlogin() {
                   nextStage={nextStage}
                   prevStage={prevStage}
                   formikprops={formikprops}
+                  changeStage={changeStage}
                 />
               )}
               {stage == 2 && (

@@ -1,19 +1,19 @@
 import * as Yup from 'yup';
 
 const artistloginschema = Yup.object().shape({
-    firstname: Yup.string()
+    firstName: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
-    lastname: Yup.string()
+    lastName: Yup.string()
         .min(2, 'Too Short!')
         .max(50, 'Too Long!')
         .required('Required'),
     email: Yup.string().email('Invalid email').required('Required'),
-    phone: Yup.string().required('Required'),
+    phoneNumber: Yup.string().required('Required'),
     gender: Yup.string().required('Required'),
     search: Yup.string().required('Required'),
-    houseno: Yup.string().required('Required'),
+    houseNumber: Yup.string().required('Required'),
     country: Yup.string().required('Required'),
     city: Yup.string().required('Required'),
     state: Yup.string().required('Required'),

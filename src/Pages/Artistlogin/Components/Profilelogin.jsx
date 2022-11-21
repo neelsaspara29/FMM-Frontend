@@ -1,35 +1,59 @@
 import { Form, Field, ErrorMessage } from "formik";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ReactRoundedImage from "react-rounded-image";
+import {
+  ApiGet,
+  ApiPost,
+  ApiPostNoAuth,
+  ApiUpload,
+} from "../../../Helpers/API/ApiData";
+import Modal from "react-bootstrap/Modal";
+import { Button } from "react-bootstrap";
+import { useRef } from "react";
+import { toast, ToastContainer, Zoom } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { artisttokenset } from "../../../Redux/Auth/ArtistAuth/actionCreator";
+
 let savedimg;
-function Profilelogin({ formikprops, nextStage }) {
-  console.log("fp", formikprops);
-  const [profileimg, setProfileimg] = useState(null);
+
+function Profilelogin({ formikprops, nextStage, changeStage }) {
+  const dispatch = useDispatch();
+  const [show, setShow] = useState(false);
+  const otpref = useRef(null);
+  console.log(useSelector((state) => state.artistloginReducer));
   const validateProfile = () => {
     formikprops.setTouched({
-      firstname: true,
-      lastname: true,
+      fillRule: true,
+      lastName: true,
       gender: true,
       email: true,
       phone: true,
     });
-    formikprops.validateField("firstname");
-    formikprops.validateField("lastname");
+    formikprops.validateField("firstName");
+    formikprops.validateField("lastName");
     formikprops.validateField("gender");
     formikprops.validateField("email");
-    formikprops.validateField("phone");
+    formikprops.validateField("phoneNumber");
 
     if (
       !(
-        formikprops.errors["firstname"] ||
-        formikprops.errors["lastname"] ||
+        formikprops.errors["firstName"] ||
+        formikprops.errors["lastName"] ||
         formikprops.errors["gender"] ||
         formikprops.errors["eamil"] ||
         formikprops.errors["phone"]
       ) &&
       formikprops.dirty
     ) {
-      nextStage();
+      ApiPost("artist/update/profile", {
+        ...formikprops.values,
+        profileStatus: 0,
+      })
+        .then((res) => {
+          console.log(res);
+          nextStage();
+        })
+        .catch((err) => console.log(err));
     }
   };
 
@@ -46,11 +70,76 @@ function Profilelogin({ formikprops, nextStage }) {
       savedimg = file;
     }
   };
-  const saveimg = () => {
+  const saveimg = async () => {
     document.querySelector(".image-model").classList.remove("opened");
     document.querySelector("body").classList.remove("opened-drawer");
-    setProfileimg(savedimg);
+    formikprops.setValues((data) => {
+      return {
+        ...data,
+        profileimage: savedimg,
+      };
+    });
+
+    let file2 = savedimg;
+    // let fileURL = URL.createObjectURL(file2);
+    // file2.fileURL = fileURL;
+    let formData = new FormData();
+    formData.append("image", file2);
+    console.log({ formData });
+    await ApiUpload("upload/profile", formData)
+      .then((res) => console.log(res))
+      .catch((err) => console.log("res_blob", err));
   };
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  const varifyMobile = () => {
+    if (formikprops.values.phone.length == 10 && formikprops.values.phone) {
+      ApiPostNoAuth("user/verify/mobile", {
+        phoneNumber: formikprops.values.phone,
+        userType: 1,
+      })
+        .then((res) =>
+          res.status == "200" ? handleShow() : toast.error(res.message)
+        )
+        .catch((error) => toast.error(error.message));
+    } else {
+      toast.error("Enter valid Number");
+    }
+  };
+  const handleotpSubmit = () => {
+    console.log(otpref.current.value, formikprops.values.phone);
+    ApiPostNoAuth("user/verifyOtp", {
+      otp: otpref.current.value,
+      phoneNumber: formikprops.values.phone,
+      userType: 1,
+    })
+      .then((res) => {
+        console.log(res);
+        dispatch(
+          artisttokenset({
+            token: res.data.data.token,
+            usertype: res.data.data.userType,
+          })
+        );
+        formikprops.setValues((data) => {
+          return {
+            ...data,
+            ismobilevarified: true,
+          };
+        });
+        toast.success("OTP verify Successfully");
+        handleClose();
+      })
+      .catch((error) => toast(error.message));
+  };
+  // useEffect(() => {
+  //   ApiGet("artist/profile").then((res) => {
+  //     formikprops.setValues({ ...formikprops.values, ...res.data.data });
+  //     changeStage(Number(res.data.data.profileStatus) + 2);
+  //   });
+  // }, []);
+
   return (
     <>
       <div className="main-login-section">
@@ -60,7 +149,7 @@ function Profilelogin({ formikprops, nextStage }) {
               <div className="col-wrapper">
                 <div className="header-top">
                   <h2 className="login-title">About Me</h2>
-                  {!profileimg ? (
+                  {!formikprops.values.profileimage ? (
                     <img
                       className="upload-image"
                       src="assets/images/login-top-img.png"
@@ -70,7 +159,9 @@ function Profilelogin({ formikprops, nextStage }) {
                     />
                   ) : (
                     <ReactRoundedImage
-                      image={URL.createObjectURL(profileimg)}
+                      image={URL.createObjectURL(
+                        formikprops.values.profileimage
+                      )}
                       roundedColor="#C7C7C7"
                       imageWidth="85"
                       imageHeight="85"
@@ -84,29 +175,29 @@ function Profilelogin({ formikprops, nextStage }) {
               <div className="login-form-section">
                 <Form className="login-form">
                   <div className="input-field">
-                    <label htmlFor="firstname">First Name*</label>
-                    <ErrorMessage name="firstname">
+                    <label htmlFor="firstName">First Name*</label>
+                    <ErrorMessage name="firstName">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                     <Field
                       type="text"
                       placeholder="Enter First name"
-                      name="firstname"
+                      name="firstName"
                       required
                     />
                   </div>
                   <div className="two-field">
                     <div className="input-field">
-                      <label htmlFor="lastname">
+                      <label htmlFor="lastName">
                         <b>Last Name*</b>
                       </label>
-                      <ErrorMessage name="lastname">
+                      <ErrorMessage name="lastName">
                         {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                       </ErrorMessage>
                       <Field
                         type="text"
                         placeholder="Last name"
-                        name="lastname"
+                        name="lastName"
                         required
                       />
                     </div>
@@ -117,21 +208,24 @@ function Profilelogin({ formikprops, nextStage }) {
                       </ErrorMessage>
                       <Field as="select" name="gender">
                         <option value="none">Select Gender</option>
-                        <option value="male">Mail</option>
-                        <option value="female">Femail</option>
-                        <option value="other">Tranc</option>
+                        <option value={0}>Male</option>
+                        <option value={1}>Femail</option>
+                        <option value={2}>Tranc</option>
                       </Field>
                     </div>
                   </div>
                   <div className="input-field contact-number">
-                    <label htmlFor="phone">Contact Number*</label>
-                    <ErrorMessage name="phone">
-                      {(msg) => <div style={{ color: "red" }}>{msg}</div>}
-                    </ErrorMessage>
+                    <label htmlFor="phone">
+                      Contact Number*{" "}
+                      <ErrorMessage name="phone">
+                        {(msg) => <div style={{ color: "red" }}>{msg}</div>}
+                      </ErrorMessage>{" "}
+                    </label>
+
                     <Field
                       type="tel"
                       id="phone"
-                      name="phone"
+                      name="phoneNumber"
                       placeholder="+91 1234567890"
                     />
                     <svg
@@ -178,7 +272,13 @@ function Profilelogin({ formikprops, nextStage }) {
                         </clipPath>
                       </defs>
                     </svg>
-                    <span>Verified</span>
+                    <span style={{ cursor: "pointer" }} onClick={varifyMobile}>
+                      {formikprops.values.ismobilevarified ? (
+                        " Verified"
+                      ) : (
+                        <p style={{ color: "red", fontSize: "10px" }}>Verify</p>
+                      )}
+                    </span>
                   </div>
                   <div className="input-field">
                     <label htmlFor="email">Enter your email*:</label>
@@ -202,7 +302,7 @@ function Profilelogin({ formikprops, nextStage }) {
                     </ErrorMessage>
                     <Field
                       as="textarea"
-                      name="message"
+                      name="bio"
                       rows="6"
                       cols="50"
                       placeholder="Bio"
@@ -228,7 +328,7 @@ function Profilelogin({ formikprops, nextStage }) {
           </div>
         </div>
       </div>
-      <div className="image-model">
+      <div className="image-model ">
         <div className="image-model-wrapper">
           <div className="model-header">
             <h2>Add Profile Image</h2>
@@ -277,6 +377,12 @@ function Profilelogin({ formikprops, nextStage }) {
           </div>
         </div>
       </div>
+
+      <ToastContainer
+        autoClose={1500}
+        transition={Zoom}
+        hideProgressBar={true}
+      />
     </>
   );
 }

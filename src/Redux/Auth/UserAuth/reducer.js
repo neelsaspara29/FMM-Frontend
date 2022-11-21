@@ -1,40 +1,40 @@
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { ARTIST_LOGIN, ARTIST_TOKEN } from "./action";
+import { USER_SIGNUP, USER_TOKEN } from "./action";
 
 
 const initialState = {
-    token: '',
+    usertoken: '',
     username: '',
     usertype: null
 }
 const configPersisit = {
     storage,
-    key: 'token',
+    key: 'user_token',
 
 }
 
-export const artistloginReducer = persistReducer(configPersisit, (state = initialState, action) => {
+export const usersignupreducer = persistReducer(configPersisit, (state = initialState, action) => {
     switch (action.type) {
-        case ARTIST_LOGIN:
+        case USER_SIGNUP:
 
             return {
                 ...state,
-                usertype: action.payload.usertype
+                username: action.payload.username
             };
 
-        case ARTIST_TOKEN:
+        case USER_TOKEN:
 
             return {
                 ...state,
-                token: action.payload.token,
+                usertoken: action.payload.token,
                 usertype: action.payload.usertype
             }
 
 
         default:
             return state;
-            break;
+
     }
 
 }) 

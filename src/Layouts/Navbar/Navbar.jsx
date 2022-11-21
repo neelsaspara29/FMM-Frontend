@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 function Navbar() {
   const state = useSelector((state) => state.artistloginReducer);
-  console.log(state);
+  const userdata = useSelector((state) => state.usersignupreducer);
+  // console.log({ username, state });
   return (
     <>
       <div className="menu-overlay"></div>
@@ -139,8 +140,10 @@ function Navbar() {
                 </ul>
               </div>
               <div className="login-button">
-                {state.username ? (
-                  <>{<button className="button">{state.username} </button>}</>
+                {userdata.username ? (
+                  <>
+                    {<button className="button">{userdata.username} </button>}
+                  </>
                 ) : (
                   <Link to="/userlogin" className="button">
                     login

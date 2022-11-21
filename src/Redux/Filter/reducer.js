@@ -1,20 +1,23 @@
 import { APPLY_FILTER } from "./action";
 
 const initialstate = {
-    pricerange: {
-        max: "",
-        min: "",
+    "page": 1,
+    "limit": 10,
+    "partyMakeup": false,
+    "bridalMakeup": false,
+    "bodyFaceArt": false,
+    "cinematicMakeup": false,
+    "highFashionMakeup": false,
+    "priceRange": {
+        "min": '',
+        "max": ''
     },
-    services: [],
-    experience: {
-        from: '',
-        to: ''
-    },
-    iscertifies: false,
-    isvarified: false,
-    ishairstyling: false,
-    ratinng: ""
-
+    "experience": [],
+    "certifiedOnly": false,
+    "verifiedOnly": 0,
+    "travelToVenue": 0,
+    "offerHairStyling": false,
+    "offerInStudioService": false
 }
 
 

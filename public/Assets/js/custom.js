@@ -21,6 +21,7 @@ $(document).ready(function () {
     $('.image-model').removeClass('opened');
     $('body').removeClass('opened-drawer');
   });
+ 
 
   $(document).on('click', '.filter-section .heading-section', function () {
     var selected = $(this).next('.content-section');

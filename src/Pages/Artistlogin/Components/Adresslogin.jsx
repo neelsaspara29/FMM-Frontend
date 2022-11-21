@@ -1,29 +1,38 @@
 import { ErrorMessage, Field, Form } from "formik";
 import React, { useEffect } from "react";
+import { ApiPost } from "../../../Helpers/API/ApiData";
 
 function Adresslogin({ formikprops, nextStage, prevStage }) {
   console.log("fp", formikprops);
   const validateProfile = () => {
     formikprops.setTouched({
-      houseno: true,
+      houseNumber: true,
       country: true,
       city: true,
       state: true,
     });
-    formikprops.validateField("houseno");
+    formikprops.validateField("houseNumber");
     formikprops.validateField("country");
     formikprops.validateField("city");
     formikprops.validateField("state");
 
     if (
       !(
-        formikprops.errors["houseno"] ||
+        formikprops.errors["houseNumber"] ||
         formikprops.errors["country"] ||
         formikprops.errors["city"] ||
         formikprops.errors["state"]
       )
     ) {
-      nextStage();
+      ApiPost("artist/update/profile", {
+        ...formikprops.values,
+        profileStatus: 1,
+      })
+        .then((res) => {
+          console.log(res);
+          nextStage();
+        })
+        .catch((err) => console.log(err));
     }
   };
   useEffect(() => {
@@ -92,7 +101,7 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                     <iframe
                       width="100%"
                       height="422px"
-                      frameborder="0"
+                      frameBorder="0"
                       scrolling="no"
                       marginheight="0"
                       marginwidth="0"
@@ -111,14 +120,14 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
               <div className="adress-form-section">
                 <Form>
                   <div className="input-field">
-                    <label for="houseno">House Number *</label>
-                    <ErrorMessage name="houseno">
+                    <label for="houseNumber">House Number *</label>
+                    <ErrorMessage name="houseNumber">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                     <Field
                       type="text"
                       placeholder="Enter House Number"
-                      name="houseno"
+                      name="houseNumber"
                       required
                     />
                   </div>
@@ -135,14 +144,14 @@ function Adresslogin({ formikprops, nextStage, prevStage }) {
                     />
                   </div>
                   <div className="input-field">
-                    <label for="landmark">Land Mark</label>
-                    <ErrorMessage name="landmark">
+                    <label for="landMark">Land Mark</label>
+                    <ErrorMessage name="landMark">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                     <Field
                       type="text"
                       placeholder="Enter Land Mark"
-                      name="landmark"
+                      name="landMark"
                       required
                     />
                   </div>

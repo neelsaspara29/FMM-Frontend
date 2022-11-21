@@ -11,6 +11,7 @@ import Home from "./Pages/Homepage/Home";
 import Membership from "./Pages/Membership/Membership";
 import PrivacyPolicy from "./Pages/Privacy-Policy/PrivacyPolicy";
 import Userlogin from "./Pages/Userlogin/Userlogin";
+import Usersignup from "./Pages/Usersignup/Usersignup";
 import { Navbarroutes } from "./Routes/Navbar/Navbarroutes";
 
 function App() {
@@ -29,7 +30,7 @@ function App() {
     <>
 
       <Routes>
-        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin"]} />}>
+        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup"]} />}>
 
 
           <Route path="/explore-makeupartist" element={<Exploreartist />}></Route>
@@ -43,6 +44,9 @@ function App() {
           <Route path="/artistlogin" element={<Artistlogin />}></Route>
 
           <Route path="/userlogin" element={<Userlogin />}></Route>
+
+          <Route path="/usersignup" element={<Usersignup />}></Route>
+
 
           <Route path="/membership" element={<Membership />} />
 

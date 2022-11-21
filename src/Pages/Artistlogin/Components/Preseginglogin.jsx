@@ -40,12 +40,12 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
                   <div className="input-field-checkbox checkbox-input">
                     <Field
                       type="checkbox"
-                      id="certified"
-                      name="certified"
-                      value="certified"
+                      id="isCertified"
+                      name="isCertified"
+                      value="isCertified"
                     />
-                    <label for="certified">Are you certified?</label>
-                    <ErrorMessage name="certified">
+                    <label for="isCertified">Are you isCertified?</label>
+                    <ErrorMessage name="isCertified">
                       {(msg) => <div style={{ color: "red" }}>{msg}</div>}
                     </ErrorMessage>
                   </div>

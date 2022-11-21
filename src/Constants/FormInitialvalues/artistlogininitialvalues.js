@@ -1,21 +1,22 @@
 export default {
     profileimage: "",
-    firstname: "",
-    lastname: "",
+    profilePhoto: "",
+    firstName: "",
+    lastName: "",
     gender: "",
-    phone: "",
+    phoneNumber: "",
     email: "",
-    message: "",
+    bio: "",
     search: "",
-    houseno: "",
+    houseNumber: "",
     area: "",
-    landmark: "",
+    landMark: "",
     country: "",
     city: "",
     state: "",
     services: [],
     price: "",
-    certified: "",
+    isCertified: "",
     uploadcertificate: "",
     experience: "",
     style: "",
@@ -23,7 +24,8 @@ export default {
     brand: "",
     profile: "",
     photos: [],
-    videos:[]
+    videos: [],
+    ismobilevarified: false
 
 
 }
