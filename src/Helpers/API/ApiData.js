@@ -248,7 +248,7 @@ export const ApiUpload = (type, userData, AdditionalHeader) => {
   return new Promise((resolve, reject) => {
     axios
       .post(BaseURL + type, userData, {
-        ...getHttpOptions(),
+        ...getHttpOptionsForUpload(),
         ...AdditionalHeader,
       })
       .then((responseJson) => {
@@ -413,6 +413,37 @@ export const getHttpOptions = (options = defaultHeaders) => {
   }
 
   // headers["Access-Control-Allow-Origin"] = "*"
+
+  /* setting appId as default */
+  // headers['appid'] = 'hummz';
+
+  return { headers };
+};
+export const getHttpOptionsForUpload = (options = defaultHeaders) => {
+  let headers = {};
+  if (options.type == 1) {
+
+    if (options.hasOwnProperty("isAuth") && options.isAuth) {
+      headers["Authorization"] = Auth.getToken();
+      headers["Cache-Control"] = "no-cache";
+    }
+  } else {
+    if (options.hasOwnProperty("isAuth") && options.isAuth) {
+      headers["Authorization"] = Auth.getUserToken();
+      headers["Cache-Control"] = "no-cache";
+    }
+  }
+
+  if (options.hasOwnProperty("isJsonRequest") && options.isJsonRequest) {
+    headers["Content-Type"] = "application/json";
+  }
+
+  if (options.hasOwnProperty("AdditionalParams") && options.AdditionalParams) {
+    headers = { ...headers, ...options.AdditionalParams };
+  }
+
+  // headers["Access-Control-Allow-Origin"] = "*"
+  headers["Content-Type"] = "multipart/form-data";
 
   /* setting appId as default */
   // headers['appid'] = 'hummz';
