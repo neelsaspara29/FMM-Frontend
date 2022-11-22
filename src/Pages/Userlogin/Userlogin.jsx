@@ -1,7 +1,42 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import GoogleLogin from 'react-google-login';
+import { ApiPostNoAuth } from "../../Helpers/API/ApiData";
+import { artisttokenset } from "../../Redux/Auth/ArtistAuth/actionCreator";
+import { useDispatch } from "react-redux";
+
 
 function Userlogin() {
+  const dispatch = useDispatch();
+
+
+  const handleGoogleLogin = (user) => {
+    localStorage.setItem('socialAccData', JSON.stringify(user));
+
+    console.log(user)
+ 
+    
+    const parsedsocialAccData = JSON.parse(JSON.stringify(user));
+    const body = {
+      accessToken: parsedsocialAccData?.accessToken,
+      idToken: parsedsocialAccData?.tokenId,
+      userType: 0
+    }
+
+    ApiPostNoAuth("user/auth/google", body)
+      .then((res) => {
+        console.log(res);
+        dispatch(
+          artisttokenset({
+            token: res.data.data.token,
+            usertype: res.data.data.userType,
+          })
+        );})
+    
+
+    
+
+  };
   return (
     <>
       <div className="login-page">
@@ -85,7 +120,23 @@ function Userlogin() {
                       <div className="or">
                         <span>OR</span>
                       </div>
-                      <div className="signup-button-section">
+
+                      <GoogleLogin
+            clientId={'1045891194371-ak7uqmuqeuah1mt1rnd36rvehc3l2dtl.apps.googleusercontent.com'}
+            render={(renderProps) => (
+              // <button
+              //   className="btn btn-normal2 mt-4 google border30 text-white my-auto  align-items-center"
+              //   onClick={renderProps.onClick}
+              // >
+              //   <div className='d-flex justify-content-center align-items-center '>
+
+              //   <div>
+              //   <AiOutlineGoogle className='mr-5' />
+              //   </div>
+              //   <div className='ml-5' style={{marginLeft:"10px"}}>Continue With Google</div>
+              //   </div>
+              // </button>
+              <div className="signup-button-section" onClick={renderProps.onClick}>
                         <button type="button" className="sign-up-button">
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -114,6 +165,16 @@ function Userlogin() {
                           Sign Up With Google
                         </button>
                       </div>
+
+            )}
+            buttonText=""
+            onSuccess={handleGoogleLogin}
+            onFailure={(e) => {console.log(e)}}
+            cookiePolicy={'single_host_origin'}
+          />
+
+
+                      
                       <div className="login-button-line">
                         Don't Have an account?
                         <Link to="/usersignup">Sign Up</Link>
