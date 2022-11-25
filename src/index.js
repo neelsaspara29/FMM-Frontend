@@ -14,12 +14,13 @@ import store, { persistor } from './Redux/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <BrowserRouter>
-    <Provider store={store} persistor={persistor}>
-      <App />
-    </Provider>
-    </BrowserRouter>
-  </React.StrictMode>
+  // <React.StrictMode>
+  //   <BrowserRouter>
+  //   <Provider store={store} persistor={persistor}>
+  //     <App />
+  //   </Provider>
+  //   </BrowserRouter>
+  // </React.StrictMode>
+  <h1>neel</h1>
 );
 
