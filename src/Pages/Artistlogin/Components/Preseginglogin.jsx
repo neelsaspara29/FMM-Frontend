@@ -1,5 +1,6 @@
 import { ErrorMessage, Field, Form } from "formik";
 import React from "react";
+import { ApiPost } from "../../../Helpers/API/ApiData";
 
 function Preseginglogin({ formikprops, nextStage, prevStage }) {
   console.log("fp", formikprops);
@@ -11,7 +12,15 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
     formikprops.validateField("price");
     formikprops.validateField("experience");
     if (!(formikprops.errors["price"] || formikprops.errors["experience"])) {
-      nextStage();
+      ApiPost("artist/update/profile", {
+        ...formikprops.values,
+        profileStatus: 3,
+      })
+        .then((res) => {
+          console.log(res);
+          nextStage();
+        })
+        .catch((err) => console.log(err));
     }
   };
   return (

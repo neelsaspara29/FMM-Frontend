@@ -5,62 +5,38 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 import Searchtrigger from "./Searchtrigger";
 import $ from "jquery";
+import {
+  ApiPost,
+  ApiPostNoAuth,
+  ApiPostuser,
+} from "../../../Helpers/API/ApiData";
+import { useRef } from "react";
 
 function Exploreartistmain() {
-  
   const [filterObject, setFilterObject] = useState({
     pricerange: {
       max: "",
       min: "",
     },
     services: [],
-    experience: {
-      from: "",
-      to: "",
-    },
+    experience: [],
     iscertified: [],
     isvarified: [],
     ishairstyling: [],
     inStudioservice: [],
     rating: [],
   });
+  const sliderref = useRef(null);
   const filters = useSelector((state) => state.applyfilterreducer);
-  console.log(filters);
+
   useEffect(() => {
-    console.log(filters);
+    ApiPostuser("user/artist/get", filters).then((res) => console.log(res));
   }, [filters]);
+  useEffect(() => {
+    console.log(sliderref.current?.value);
+  }, [sliderref.current?.value]);
 
-  // useEffect(() => {
-  //   $(document).on("click", ".filter-section .heading-section", function () {
-  //     console.log("clicked");
-  //     var selected = $(this).next(".content-section");
-  //     if (selected.is(":hidden")) {
-  //       $(this).next(".content-section").slideDown("fast");
-  //       $(this).toggleClass("active");
-  //     } else {
-  //       $(this).next(".content-section").slideUp("fast");
-  //       $(this).toggleClass("active");
-  //     }
-  //   });
-  //   $(function () {
-  //     $("#slider-range").slider({
-  //       range: true,
-  //       min: 130,
-  //       max: 500,
-  //       values: [130, 250],
-  //       slide: function (event, ui) {
-  //         $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
-  //       },
-  //     });
-  //     $("#amount").val(
-  //       "$" +
-  //         $("#slider-range").slider("values", 0) +
-  //         " - $" +
-  //         $("#slider-range").slider("values", 1)
-  //     );
-  //   });
-  // }, []);
-
+  console.log({ lo: sliderref.current });
   return (
     <>
       <div className="main-explore-makeup-artists">
@@ -116,6 +92,8 @@ function Exploreartistmain() {
                                     type="text"
                                     id="amount"
                                     readOnly=""
+                                    onChange={(val) => console.log(val)}
+                                    ref={sliderref}
                                   />
                                 </p>
                                 <div
@@ -1743,7 +1721,7 @@ function Exploreartistmain() {
                                     </g>
                                     <path
                                       d="M102.488 3.50195L105.145 8.88447L111.086 9.74864L106.788 13.9386L107.802 19.8557L102.488 17.062L97.1745 19.8557L98.1892 13.9386L93.8906 9.74864L99.8312 8.88447L102.488 3.50195Z"
-                                      fill="#EDEDED"
+                                      fill="#FFCA3E"
                                     />
                                     <g
                                       style={{ mixBlendMode: "multiply" }}
@@ -1751,7 +1729,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M102.487 3.50195L102.479 12.8337L105.144 8.88447L102.487 3.50195Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1760,7 +1738,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M111.085 9.74902L102.479 12.8341L106.787 13.939L111.085 9.74902Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1769,7 +1747,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M102.487 17.0622L107.802 19.856L102.479 12.834L102.487 17.0622Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1778,7 +1756,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M97.1753 19.856L102.481 12.834L98.1901 13.9389L97.1753 19.856Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1787,12 +1765,12 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M93.8906 9.74991L102.48 12.835L99.8312 8.88574L93.8906 9.74991Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <path
                                       d="M80.7129 3.50195L83.3709 8.88447L89.3114 9.74864L85.0128 13.9386L86.0276 19.8557L80.7129 17.062L75.3996 19.8557L76.4143 13.9386L72.1157 9.74864L78.0563 8.88447L80.7129 3.50195Z"
-                                      fill="#EDEDED"
+                                      fill="#FFCA3E"
                                     />
                                     <g
                                       style={{ mixBlendMode: "multiply" }}
@@ -1800,7 +1778,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M80.712 3.50195L80.7046 12.8337L83.3699 8.88447L80.712 3.50195Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1809,7 +1787,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M89.3104 9.74902L80.7046 12.8341L85.0118 13.939L89.3104 9.74902Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1818,7 +1796,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M80.712 17.0622L86.0266 19.856L80.7046 12.834L80.712 17.0622Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1827,7 +1805,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M75.4004 19.856L80.7064 12.834L76.4152 13.9389L75.4004 19.856Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                     <g
@@ -1836,7 +1814,7 @@ function Exploreartistmain() {
                                     >
                                       <path
                                         d="M72.1157 9.74991L80.7055 12.835L78.0562 8.88574L72.1157 9.74991Z"
-                                        fill="#EDEDED"
+                                        fill="#FFCA3E"
                                       />
                                     </g>
                                   </svg>

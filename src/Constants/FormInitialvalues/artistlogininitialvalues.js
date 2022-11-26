@@ -16,7 +16,7 @@ export default {
     state: "",
     services: [],
     price: "",
-    isCertified: "",
+    isCertified: false,
     uploadcertificate: "",
     experience: "",
     style: "",

@@ -4,7 +4,7 @@ import CryptoJS from "crypto-js";
 import * as authUtil from "../../utils/auth.util";
 import axios from "axios";
 
-export const BaseURL = 'http://localhost:3002' + "/";
+export const BaseURL = 'http://192.168.29.132:3002' + "/";
 export const Bucket =
   "https://unicorn-ui-development.s3.ap-south-1.amazonaws.com/";
 // export const Bucket = "https://unicornui-production.s3.amazonaws.com/";

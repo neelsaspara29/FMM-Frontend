@@ -49,11 +49,11 @@ function Usersignup() {
       })
         .then((res) => {
           console.log(res);
-          res.status == "200" && toast.success("OTP VArified Successfully");
+          res.status == "200" && toast.success(res.message);
           dispatch(usertokenset({ token: res.data.data.token }));
           setSignup(!signup);
         })
-        .catch((err) => toast.error(err));
+        .catch((err) => toast.error(err.message));
     } else {
       toast.error("Enter 6 digit  OTP");
     }

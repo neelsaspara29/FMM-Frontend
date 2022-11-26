@@ -13,14 +13,17 @@ import { useRef } from "react";
 import { toast, ToastContainer, Zoom } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { artisttokenset } from "../../../Redux/Auth/ArtistAuth/actionCreator";
+import { useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 
 let savedimg;
 
-function Profilelogin({ formikprops, nextStage, changeStage }) {
+function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
   const dispatch = useDispatch();
-  const [show, setShow] = useState(false);
+  const [open, setOpen] = useState(false);
   const otpref = useRef(null);
-  console.log(useSelector((state) => state.artistloginReducer));
+  const navigate = useNavigate();
+
   const validateProfile = () => {
     formikprops.setTouched({
       fillRule: true,
@@ -41,7 +44,7 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
         formikprops.errors["lastName"] ||
         formikprops.errors["gender"] ||
         formikprops.errors["eamil"] ||
-        formikprops.errors["phone"]
+        formikprops.errors["phoneNumber"]
       ) &&
       formikprops.dirty
     ) {
@@ -50,20 +53,17 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
         profileStatus: 0,
       })
         .then((res) => {
-          console.log(res);
           nextStage();
         })
-        .catch((err) => console.log(err));
+        .catch((err) => toast.error(err.message));
     }
   };
 
   const openImage = () => {
-    document.querySelector(".image-model").classList.toggle("opened");
-    document.querySelector("body").classList.toggle("opened-drawer");
+    setOpen(!open);
   };
   const previewimage = (evt) => {
     const file = evt.target.files[0];
-    console.log("evt", evt.target.files[0]);
     if (file) {
       let forpreview = document.getElementById("forpreview");
       forpreview.src = URL.createObjectURL(file);
@@ -81,26 +81,28 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
     });
 
     let file2 = savedimg;
-    // let fileURL = URL.createObjectURL(file2);
-    // file2.fileURL = fileURL;
+    let fileURL = URL.createObjectURL(file2);
+    file2.fileURL = fileURL;
     let formData = new FormData();
     formData.append("image", file2);
-    console.log({ formData });
     await ApiUpload("upload/profile", formData)
       .then((res) => console.log(res))
-      .catch((err) => console.log("res_blob", err));
+      .catch((err) => toast.error(err.message));
   };
 
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
   const varifyMobile = () => {
-    if (formikprops.values.phone.length == 10 && formikprops.values.phone) {
+    if (
+      formikprops.values.phoneNumber.length == 10 &&
+      formikprops.values.phoneNumber
+    ) {
       ApiPostNoAuth("user/verify/mobile", {
-        phoneNumber: formikprops.values.phone,
+        phoneNumber: formikprops.values.phoneNumber,
         userType: 1,
       })
         .then((res) =>
-          res.status == "200" ? handleShow() : toast.error(res.message)
+          res.status == "200"
+            ? toast.success("Message Send Successfully")
+            : toast.error(res.message)
         )
         .catch((error) => toast.error(error.message));
     } else {
@@ -108,37 +110,42 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
     }
   };
   const handleotpSubmit = () => {
-    console.log(otpref.current.value, formikprops.values.phone);
     ApiPostNoAuth("user/verifyOtp", {
       otp: otpref.current.value,
-      phoneNumber: formikprops.values.phone,
+      phoneNumber: formikprops.values.phoneNumber,
       userType: 1,
     })
       .then((res) => {
         console.log(res);
+
         dispatch(
           artisttokenset({
             token: res.data.data.token,
             usertype: res.data.data.userType,
           })
         );
+        if (res.data.data.data.profileStatus == 4) {
+          navigate("/artistlogin");
+        }
+        changeStage(res.data.data.data.profileStatus + 1);
         formikprops.setValues((data) => {
           return {
             ...data,
+            ...res.data.data.data,
             ismobilevarified: true,
           };
         });
-        toast.success("OTP verify Successfully");
-        handleClose();
+        toast.success(res.message);
       })
       .catch((error) => toast(error.message));
   };
-  // useEffect(() => {
+  // useMemo(() => {
   //   ApiGet("artist/profile").then((res) => {
+  //     console.log(res);
   //     formikprops.setValues({ ...formikprops.values, ...res.data.data });
-  //     changeStage(Number(res.data.data.profileStatus) + 2);
+  //     // changeStage(Number(res.data.data.profileStatus) + 1);
   //   });
-  // }, []);
+  // }, [stage]);
 
   return (
     <>
@@ -280,6 +287,19 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
                       )}
                     </span>
                   </div>
+                  <div className="input-field contact-number">
+                    <label htmlFor="otp">Enter OTP</label>
+
+                    <input
+                      type="text"
+                      id="otp"
+                      name="otp"
+                      onChange={(e) =>
+                        e.target.value.length == 6 ? handleotpSubmit() : null
+                      }
+                      ref={otpref}
+                    />
+                  </div>
                   <div className="input-field">
                     <label htmlFor="email">Enter your email*:</label>
                     <ErrorMessage name="email">
@@ -328,7 +348,7 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
           </div>
         </div>
       </div>
-      <div className="image-model ">
+      <div className={`image-model ${open ? " opened" : null}`}>
         <div className="image-model-wrapper">
           <div className="model-header">
             <h2>Add Profile Image</h2>
@@ -339,6 +359,7 @@ function Profilelogin({ formikprops, nextStage, changeStage }) {
               height="15"
               viewBox="0 0 15 15"
               fill="none"
+              onClick={() => setOpen(!open)}
             >
               <path
                 d="M1 1L14 14M14 1L1 14L14 1Z"

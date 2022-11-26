@@ -42,6 +42,7 @@ function Artistlogin() {
                   prevStage={prevStage}
                   formikprops={formikprops}
                   changeStage={changeStage}
+                  stage={stage}
                 />
               )}
               {stage == 2 && (

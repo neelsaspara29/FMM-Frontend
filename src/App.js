@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Aboutus from "./Pages/Aboutus/Aboutus";
 import Artistlogin from "./Pages/Artistlogin/Artistlogin";
+import Artistloginmain from "./Pages/Artistlogin/Artistloginmain";
 import BlogDetails from "./Pages/Blog/BlogDetails";
 import BlogList from "./Pages/Blog/BlogList";
 import Contact from "./Pages/Contact/Contact";
@@ -30,7 +31,7 @@ function App() {
     <>
 
       <Routes>
-        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup"]} />}>
+        <Route element={<Navbarroutes hideHeaderPaths={["/userlogin", "/usersignup", '/artistlogin']} />}>
 
 
           <Route path="/explore-makeupartist" element={<Exploreartist />}></Route>
@@ -41,11 +42,12 @@ function App() {
 
           <Route path="/" element={<Home />}></Route>
 
-          <Route path="/artistlogin" element={<Artistlogin />}></Route>
+          <Route path="/artistsignup" element={<Artistlogin />}></Route>
+          <Route path="/artistlogin" element={<Artistloginmain />}></Route>
 
           <Route path="/userlogin" element={<Userlogin />}></Route>
 
-          <Route path="/usersignup" element={<Usersignup />}></Route>
+          {!localStorage.getItem('persist:user_token') && <Route path="/usersignup" element={<Usersignup />}></Route>}         
 
 
           <Route path="/membership" element={<Membership />} />
@@ -55,6 +57,7 @@ function App() {
           <Route path="/contactus" element={<Contact />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />}></Route>
           <Route path="/faq" element={<Faq />}></Route>
+          {/* <Route path="*" element */}
         </Route>
       </Routes>
 

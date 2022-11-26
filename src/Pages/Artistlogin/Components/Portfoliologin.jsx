@@ -3,16 +3,24 @@ import { useDispatch } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
 import { artistlogin } from "../../../Redux/Auth/ArtistAuth/actionCreator";
 import { Slide, toast, ToastContainer, Zoom } from "react-toastify";
+import { ApiPost } from "../../../Helpers/API/ApiData";
 
-function Portfoliologin({ prevStage, formikprops }) {
+function Portfoliologin({ prevStage, formikprops, nextStage }) {
   console.log("fp", formikprops);
   const dispatch = useDispatch();
   const [imageArray, setImageArray] = useState([]);
   const [videoArray, setVideoArray] = useState([]);
   const navigate = useNavigate();
   const loginArtist = () => {
-    dispatch(artistlogin({ username: "shubham", token: "123#45^" }));
-    navigate("/");
+    ApiPost("artist/update/profile", {
+      ...formikprops.values,
+      profileStatus: 4,
+    })
+      .then((res) => {
+        console.log(res);
+        navigate("/");
+      })
+      .catch((err) => console.log(err));
   };
   const previewImage = (evt) => {
     const file = evt.target.files[0];

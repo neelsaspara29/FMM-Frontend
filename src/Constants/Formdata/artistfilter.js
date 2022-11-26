@@ -12,10 +12,10 @@ function artistfilter(obj) {
             "min": obj.pricerange.min,
             "max": obj.pricerange.max
         },
-        "experience": obj.experience,
+        "experience": obj.experience.map((data) => Number(data)),
         "certifiedOnly": obj.iscertified[0] == 'iscertified',
         "verifiedOnly": obj.isvarified[0] == 'isvarified',
-        "travelToVenue": false,
+        "travelToVenue": null,
         "offerHairStyling": obj.ishairstyling[0] == 'ishairstyling',
         "offerInStudioService": obj.inStudioservice[0] == 'inStudioservice'
     }

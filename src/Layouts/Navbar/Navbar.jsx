@@ -140,10 +140,8 @@ function Navbar() {
                 </ul>
               </div>
               <div className="login-button">
-                {userdata.username ? (
-                  <>
-                    {<button className="button">{userdata.username} </button>}
-                  </>
+                {userdata.usertoken ? (
+                  <>{<Link className="button">LogOut </Link>}</>
                 ) : (
                   <Link to="/userlogin" className="button">
                     login

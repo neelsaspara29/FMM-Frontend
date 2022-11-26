@@ -34,6 +34,7 @@ const ArtistInDemand = () => {
       },
     });
   }, []);
+  const handlefavourite = () => {};
   return (
     <>
       <section className="artists-section blog-list-artists">
@@ -77,7 +78,8 @@ const ArtistInDemand = () => {
                         width="18"
                         height="15"
                         viewBox="0 0 18 15"
-                        fill="none"
+                        fill="#000080"
+                        onClick={handlefavourite}
                       >
                         <path
                           d="M5 1C2.7912 1 1 2.61538 1 4.60837C1 6.2172 1.7 10.0355 8.5904 13.8954C8.71383 13.9638 8.85552 14 9 14C9.14448 14 9.28617 13.9638 9.4096 13.8954C16.3 10.0355 17 6.2172 17 4.60837C17 2.61538 15.2088 1 13 1C10.7912 1 9 3.18689 9 3.18689C9 3.18689 7.2088 1 5 1Z"

@@ -1,3 +1,7 @@
+
+
+
+
 $(document).ready(function () {
 
   $(document).on('click', '.menu-icon', function () {
@@ -21,7 +25,7 @@ $(document).ready(function () {
     $('.image-model').removeClass('opened');
     $('body').removeClass('opened-drawer');
   });
- 
+
 
   $(document).on('click', '.filter-section .heading-section', function () {
     var selected = $(this).next('.content-section');
@@ -136,6 +140,7 @@ $(function () {
     max: 500,
     values: [130, 250],
     slide: function (event, ui) {
+
       $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
     }
   });

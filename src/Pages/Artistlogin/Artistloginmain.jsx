@@ -1,56 +1,31 @@
 import React, { useRef, useState } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
-import GoogleLogin from "react-google-login";
-import { ApiPostNoAuth } from "../../Helpers/API/ApiData";
-import { artisttokenset } from "../../Redux/Auth/ArtistAuth/actionCreator";
-import { useDispatch, useSelector } from "react-redux";
-import { usertokenset } from "../../Redux/Auth/UserAuth/actionReducer";
 import { toast, ToastContainer, Zoom } from "react-toastify";
+import { Link, useNavigate } from "react-router-dom";
 
-function Userlogin() {
+import { ApiPostNoAuth } from "../../Helpers/API/ApiData";
+
+function Artistloginmain() {
   const otpref = useRef(null);
   const phone = useRef(null);
   const navigate = useNavigate();
   const [isOtpSend, setIsOtpSend] = useState(false);
 
-  const dispatch = useDispatch();
-
-  const handleGoogleLogin = (user) => {
-    localStorage.setItem("socialAccData", JSON.stringify(user));
-
-    console.log(user);
-
-    const parsedsocialAccData = JSON.parse(JSON.stringify(user));
-    const body = {
-      accessToken: parsedsocialAccData?.accessToken,
-      idToken: parsedsocialAccData?.tokenId,
-      userType: 0,
-    };
-
-    ApiPostNoAuth("user/auth/google", body).then((res) => {
-      console.log(res);
-      dispatch(
-        usertokenset({
-          token: res.data.data.token,
-          usertype: res.data.data.userType,
-        })
-      );
-      navigate("/");
-    });
-  };
   const handlesendotp = () => {
     if (phone.current.value && phone.current.value.length == 10) {
       ApiPostNoAuth("user/login", {
         phoneNumber: phone.current.value,
-        userType: 0,
+        userType: 1,
       })
         .then((res) => {
           console.log(res);
+
           toast.success("OTP send Successfully");
           setIsOtpSend(true);
         })
         .catch((err) => {
-          toast.error(err.message);
+          err.status == "404" && toast.error(err.message);
+
+          err.status == "405" && toast.success(err.message);
         });
     } else {
       toast.error("Enter Valid Number");
@@ -61,16 +36,10 @@ function Userlogin() {
       ApiPostNoAuth("user/verify/mobile", {
         otp: otpref.current.value,
         phoneNumber: phone.current.value,
-        userType: 0,
+        userType: 1,
       })
         .then((res) => {
           toast.success("OTP Varified Successfully");
-          dispatch(
-            usertokenset({
-              token: res.data.data?.token,
-              usertype: res.data.data?.userType,
-            })
-          );
           navigate("/");
         })
         .catch((err) => toast.error(err));
@@ -96,9 +65,9 @@ function Userlogin() {
               </div>
               <div className="col-6">
                 <div className="login-section">
-                  <h2>Log In</h2>
+                  <h2>Artist Log In</h2>
                   <div className="login-form-section">
-                    <form className="contact-form" action="" method="post">
+                    <form className="contact-form">
                       <div className="input-field contact-number">
                         <label for="phone">Contact Number*</label>
                         <input
@@ -179,71 +148,10 @@ function Userlogin() {
                           </button>
                         )}
                       </div>
-                      <div className="or">
-                        <span>OR</span>
-                      </div>
-
-                      <GoogleLogin
-                        clientId={
-                          "1045891194371-ak7uqmuqeuah1mt1rnd36rvehc3l2dtl.apps.googleusercontent.com"
-                        }
-                        render={(renderProps) => (
-                          // <button
-                          //   className="btn btn-normal2 mt-4 google border30 text-white my-auto  align-items-center"
-                          //   onClick={renderProps.onClick}
-                          // >
-                          //   <div className='d-flex justify-content-center align-items-center '>
-
-                          //   <div>
-                          //   <AiOutlineGoogle className='mr-5' />
-                          //   </div>
-                          //   <div className='ml-5' style={{marginLeft:"10px"}}>Continue With Google</div>
-                          //   </div>
-                          // </button>
-                          <div
-                            className="signup-button-section"
-                            onClick={renderProps.onClick}
-                          >
-                            <button type="button" className="sign-up-button">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="30"
-                                height="30"
-                                viewBox="0 0 30 30"
-                                fill="none"
-                              >
-                                <path
-                                  d="M27.2569 12.5519H26.25V12.5H15V17.5H22.0644C21.0338 20.4106 18.2644 22.5 15 22.5C10.8581 22.5 7.5 19.1419 7.5 15C7.5 10.8581 10.8581 7.5 15 7.5C16.9119 7.5 18.6513 8.22125 19.9756 9.39937L23.5112 5.86375C21.2787 3.78312 18.2925 2.5 15 2.5C8.09688 2.5 2.5 8.09688 2.5 15C2.5 21.9031 8.09688 27.5 15 27.5C21.9031 27.5 27.5 21.9031 27.5 15C27.5 14.1619 27.4137 13.3438 27.2569 12.5519Z"
-                                  fill="#FFC107"
-                                />
-                                <path
-                                  d="M3.94141 9.18187L8.04828 12.1937C9.15953 9.4425 11.8508 7.5 15.0002 7.5C16.912 7.5 18.6514 8.22125 19.9758 9.39937L23.5114 5.86375C21.2789 3.78312 18.2927 2.5 15.0002 2.5C10.1989 2.5 6.03516 5.21062 3.94141 9.18187Z"
-                                  fill="#FF3D00"
-                                />
-                                <path
-                                  d="M15.0002 27.4995C18.2289 27.4995 21.1627 26.2638 23.3808 24.2545L19.5121 20.9807C18.2149 21.9672 16.6299 22.5007 15.0002 22.4995C11.7489 22.4995 8.98832 20.4263 7.94832 17.5332L3.87207 20.6738C5.94082 24.722 10.1421 27.4995 15.0002 27.4995Z"
-                                  fill="#2AAA8A"
-                                />
-                                <path
-                                  d="M27.2569 12.5519H26.25V12.5H15V17.5H22.0644C21.5714 18.8853 20.6833 20.0957 19.51 20.9819L19.5119 20.9806L23.3806 24.2544C23.1069 24.5031 27.5 21.25 27.5 15C27.5 14.1619 27.4138 13.3437 27.2569 12.5519Z"
-                                  fill="#1976D2"
-                                />
-                              </svg>
-                              Sign In With Google
-                            </button>
-                          </div>
-                        )}
-                        buttonText=""
-                        onSuccess={handleGoogleLogin}
-                        onFailure={(e) => {
-                          console.log(e);
-                        }}
-                        cookiePolicy={"single_host_origin"}
-                      />
 
                       <div className="login-button-line">
                         Don't Have an account?
-                        <Link to="/usersignup">Sign Up</Link>
+                        <Link to="/artistsignup">Sign Up</Link>
                       </div>
                     </form>
                   </div>
@@ -253,6 +161,7 @@ function Userlogin() {
           </div>
         </div>
       </div>
+
       <ToastContainer
         autoClose={1500}
         transition={Zoom}
@@ -262,4 +171,4 @@ function Userlogin() {
   );
 }
 
-export default Userlogin;
+export default Artistloginmain;
