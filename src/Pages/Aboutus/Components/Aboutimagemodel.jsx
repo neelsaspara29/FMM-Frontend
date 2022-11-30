@@ -9,7 +9,7 @@ function Aboutimagemodel() {
           <div className="row">
             <div className="image-section">
               <div className="image-wrapper">
-                <img src="assets/images/about-img-1.png" alt="image" />
+                <img src="../../../assets/images/about-img-1.png" alt="image" />
               </div>
             </div>
             <div className="content-text">
@@ -50,7 +50,7 @@ function Aboutimagemodel() {
             </div>
             <div className="image-section">
               <div className="image-wrapper">
-                <img src="assets/images/about-img-2.png" alt="image" />
+                <img src="../../../assets/images/about-img-2.png" alt="image" />
               </div>
             </div>
           </div>

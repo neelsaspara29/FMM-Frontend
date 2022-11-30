@@ -147,7 +147,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage, changeStage }) {
             </div>
             <div className="col-6">
               <div className="image-section">
-                <img src="assets/images/presaging-img.png" alt="image" />
+                <img src="../../assets/images/presaging-img.png" alt="image" />
               </div>
             </div>
             <div className="button-section">

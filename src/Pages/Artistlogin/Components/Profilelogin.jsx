@@ -150,7 +150,7 @@ function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
                   !formikprops.values.profilePhoto ? (
                     <img
                       className="upload-image"
-                      src="assets/images/login-top-img.png"
+                      src="../assets/images/login-top-img.png"
                       alt="image"
                       id="profileimg"
                       onClick={openImage}
@@ -341,7 +341,7 @@ function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
             </div>
             <div className="col-6">
               <div className="image-section">
-                <img src="assets/images/login-right-img.png" alt="image" />
+                <img src="./assets/images/login-right-img.png" alt="image" />
               </div>
             </div>
             <div className="login-button">
@@ -388,7 +388,7 @@ function Profilelogin({ formikprops, nextStage, changeStage, stage }) {
                 onChange={previewimage}
               ></input>
               <img
-                src="assets/images/upload-img.png"
+                src="./assets/images/upload-img.png"
                 id="forpreview"
                 alt="image"
               ></img>

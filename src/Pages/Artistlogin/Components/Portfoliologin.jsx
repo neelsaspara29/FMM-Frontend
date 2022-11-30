@@ -127,10 +127,10 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                       <div class="file-uploder">
                         <h2 class="title">Create Your Album</h2>
                         <div class="file-upload-img">
-                          <img src="assets/images/upload-img.png" />
+                          <img src="../../../assets/images/upload-img.png" />
                         </div>
                         <div class="file-upload-img">
-                          <img src="assets/images/add-upload-img.png" />
+                          <img src="../../../assets/images/add-upload-img.png" />
                         </div>
                         <label htmlFor="albumimg">
                           <div class="img-upload-text">
@@ -301,10 +301,10 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                       </p>
                       <div class="file-uploder">
                         <div class="file-upload-img">
-                          <img src="assets/images/upload-img.png" />
+                          <img src="../../../assets/images/upload-img.png" />
                         </div>
                         <div class="file-upload-img">
-                          <img src="assets/images/add-upload-img.png" />
+                          <img src="../../../assets/images/add-upload-img.png" />
                         </div>
                         <div class="img-upload-text">
                           <p class="sub-img-title">
@@ -315,7 +315,7 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                     </div>
                     <div class="row">
                       <div class="image-thumb">
-                        <img src="assets/images/upload-img.png" />
+                        <img src="../../../assets/images/upload-img.png" />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="32"
@@ -339,7 +339,7 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                         </svg>
                       </div>
                       <div class="image-thumb">
-                        <img src="assets/images/upload-img.png" />
+                        <img src="../../../assets/images/upload-img.png" />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="32"
@@ -363,7 +363,7 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                         </svg>
                       </div>
                       <div class="image-thumb">
-                        <img src="assets/images/upload-img.png" />
+                        <img src="../../../assets/images/upload-img.png" />
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           width="32"
@@ -395,7 +395,10 @@ function Portfoliologin({ prevStage, formikprops, nextStage }) {
                 </div>
                 <div class="col-6">
                   <div class="image-section">
-                    <img src="assets/images/Skincare-bro 1.png" alt="image" />
+                    <img
+                      src="../../../assets/images/Skincare-bro 1.png"
+                      alt="image"
+                    />
                   </div>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 function SwiperHome({ setSwiperActiveidx }) {
@@ -38,7 +39,7 @@ function SwiperHome({ setSwiperActiveidx }) {
               </p>
             </div>
             <div class="button">
-              <a href="#">
+              <Link to="/explore-makeupartist">
                 Find a makeup artist
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +53,7 @@ function SwiperHome({ setSwiperActiveidx }) {
                     fill="#F8F8F8"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -70,7 +71,7 @@ function SwiperHome({ setSwiperActiveidx }) {
               </p>
             </div>
             <div class="button">
-              <a href="#">
+              <Link to="/explore-makeupartist">
                 Find a makeup artist
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +85,7 @@ function SwiperHome({ setSwiperActiveidx }) {
                     fill="#F8F8F8"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
@@ -101,7 +102,7 @@ function SwiperHome({ setSwiperActiveidx }) {
               </p>
             </div>
             <div class="button">
-              <a href="#">
+              <Link to="/explore-makeupartist">
                 Find a makeup artist
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +116,7 @@ function SwiperHome({ setSwiperActiveidx }) {
                     fill="#F8F8F8"
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
           </div>
         </SwiperSlide>
