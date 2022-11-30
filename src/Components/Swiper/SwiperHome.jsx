@@ -7,7 +7,7 @@ function SwiperHome({ setSwiperActiveidx }) {
       <Swiper
         effect={"cube"}
         grabCursor={true}
-      modules = {[Navigation, Pagination]}
+        modules={[Navigation, Pagination]}
         centeredSlides={true}
         slidesPerView={"auto"}
         coverflowEffect={{
@@ -21,15 +21,16 @@ function SwiperHome({ setSwiperActiveidx }) {
         onSlideChange={(e) => setSwiperActiveidx(e.activeIndex)}
         className="mySwiper"
         speed={800}
-        pagination = {
-          {
-            clickable: true
-          }
-        }
+        pagination={{
+          clickable: true,
+        }}
       >
         <SwiperSlide>
           <div class="slider-item swiper-slide">
-            <img src="assets/images/slider-img-1.png" alt="Slider Image" />
+            <img
+              src="../../Assets/images/slider-img-1.png"
+              alt="Slider Image"
+            />
             <div class="content-section">
               <h2 class="main-title">Makeup Artist?</h2>
               <p class="sub-text">
@@ -58,7 +59,10 @@ function SwiperHome({ setSwiperActiveidx }) {
 
         <SwiperSlide>
           <div class="slider-item swiper-slide">
-            <img src="assets/images/slider-img-2.png" alt="Slider Image" />
+            <img
+              src="../../Assets/images/slider-img-2.png"
+              alt="Slider Image"
+            />
             <div class="content-section">
               <h2 class="main-title">Makeup Artist?</h2>
               <p class="sub-text">
@@ -86,7 +90,10 @@ function SwiperHome({ setSwiperActiveidx }) {
         </SwiperSlide>
         <SwiperSlide>
           <div class="slider-item swiper-slide">
-            <img src="assets/images/slider-img-3.png" alt="Slider-Image" />
+            <img
+              src="../../Assets/images/slider-img-3.png"
+              alt="Slider-Image"
+            />
             <div class="content-section">
               <h2 class="main-title">Makeup Artist?</h2>
               <p class="sub-text">
