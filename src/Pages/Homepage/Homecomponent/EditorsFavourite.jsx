@@ -8,7 +8,10 @@ function EditorsFavourite() {
         <div className="row">
           <div className="col-6">
             <div className="image-section">
-              <img src="assets/images/testimonial-img.png" alt="Image" />
+              <img
+                src="../../../assets/images/testimonial-img.png"
+                alt="Image"
+              />
               <div className="image-content">
                 <div className="content-left">
                   <div className="name">Katrina Kaif</div>
@@ -34,7 +37,7 @@ function EditorsFavourite() {
               <div className="testimonial-top">
                 <img
                   className="testimonial-img1"
-                  src="assets/images/testimonial-img-1.png"
+                  src="../../../assets/images/testimonial-img-1.png"
                   alt="Image"
                 />
                 <div className="testimonial-right">
@@ -53,7 +56,7 @@ function EditorsFavourite() {
               <div className="testimonial-bottom-section">
                 <img
                   className="testimonial-img2"
-                  src="assets/images/testimonial-img-2.png"
+                  src="../../../assets/images/testimonial-img-2.png"
                   alt="Image"
                 />
                 <span className="artist-name">Explore the artist</span>

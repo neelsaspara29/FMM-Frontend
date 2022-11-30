@@ -89,7 +89,7 @@ function Usersignup() {
               <div className="row">
                 <div className="col-6">
                   <div className="image-section">
-                    <img src="assets/images/user-login.png" alt="iamge" />
+                    <img src="../../assets/images/user-login.png" alt="iamge" />
                   </div>
                   <h2 className="title">Welcome to Findmymua</h2>
                   <p className="description">
@@ -243,7 +243,10 @@ function Usersignup() {
                   <div className="row">
                     <div className="col-6">
                       <div className="image-section">
-                        <img src="assets/images/user-login.png" alt="iamge" />
+                        <img
+                          src="../../assets/images/user-login.png"
+                          alt="iamge"
+                        />
                       </div>
                       <h2 className="title">Welcome to Findmymua</h2>
                       <p className="description">
