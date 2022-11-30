@@ -11,7 +11,7 @@ const initialState = {
 const configPersisit = {
     storage,
     key: 'token',
-
+    serializableCheck: false
 }
 
 export const artistloginReducer = persistReducer(configPersisit, (state = initialState, action) => {

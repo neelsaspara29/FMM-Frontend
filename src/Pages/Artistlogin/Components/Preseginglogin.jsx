@@ -2,7 +2,7 @@ import { ErrorMessage, Field, Form } from "formik";
 import React from "react";
 import { ApiPost } from "../../../Helpers/API/ApiData";
 
-function Preseginglogin({ formikprops, nextStage, prevStage }) {
+function Preseginglogin({ formikprops, nextStage, prevStage, changeStage }) {
   console.log("fp", formikprops);
   const validateProfile = () => {
     formikprops.setTouched({
@@ -18,7 +18,7 @@ function Preseginglogin({ formikprops, nextStage, prevStage }) {
       })
         .then((res) => {
           console.log(res);
-          nextStage();
+          changeStage(4);
         })
         .catch((err) => console.log(err));
     }

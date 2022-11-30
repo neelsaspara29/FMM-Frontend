@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 function Navbar() {
   const state = useSelector((state) => state.artistloginReducer);
   const userdata = useSelector((state) => state.usersignupreducer);
+  const artistdata = useSelector((state) => state.artistdatareducer);
   // console.log({ username, state });
   return (
     <>
@@ -87,7 +88,7 @@ function Navbar() {
                     <Link to="/blog-list">Blog</Link>
                   </li>
                   <li>
-                    <Link>Artist corner</Link>
+                    <Link to="/artistcorner">Artist corner</Link>
                   </li>
                 </ul>
               </div>
@@ -135,13 +136,20 @@ function Navbar() {
                     <Link to="/blog-list">Blog</Link>
                   </li>
                   <li>
-                    <Link>Artist corner</Link>
+                    <Link to="/artistcorner">Artist corner</Link>
                   </li>
                 </ul>
               </div>
               <div className="login-button">
-                {userdata.usertoken ? (
-                  <>{<Link className="button">LogOut </Link>}</>
+                {artistdata.profilePhoto ? (
+                  <>
+                    <img
+                      src={artistdata.profilePhoto}
+                      style={{ width: "40px" }}
+                      alt=""
+                      srcset=""
+                    />
+                  </>
                 ) : (
                   <Link to="/userlogin" className="button">
                     login

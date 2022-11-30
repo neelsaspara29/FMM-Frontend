@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
 import Aboutus from "./Pages/Aboutus/Aboutus";
+import Artisthome from "./Pages/Artisthome/Artisthome";
 import Artistlogin from "./Pages/Artistlogin/Artistlogin";
 import Artistloginmain from "./Pages/Artistlogin/Artistloginmain";
 import BlogDetails from "./Pages/Blog/BlogDetails";
@@ -49,6 +50,7 @@ function App() {
 
           {!localStorage.getItem('persist:user_token') && <Route path="/usersignup" element={<Usersignup />}></Route>}         
 
+          <Route path="/artistcorner" element={<Artisthome />}></Route>
 
           <Route path="/membership" element={<Membership />} />
 

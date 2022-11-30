@@ -369,6 +369,7 @@ body.opened-drawer {
     border-radius: 25px;
 }
 
+
 .main-hero-slider .button a {
     background: #FF385C;
     font-family: 'Montserrat';
@@ -4247,3 +4248,7 @@ input[type=checkbox]+label:before {
 }
 
 /* End user-login.css */
+.alreadyMember{
+    background-color: white;
+    background-color: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 40.73%, rgba(255, 255, 255, 0) 97.5%) !important;
+}

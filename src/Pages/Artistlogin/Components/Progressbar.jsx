@@ -33,18 +33,15 @@ function Progressbar({ stage, changeStage }) {
               <div className="tab-title">Services</div>
             </a>
           </li>
-          <li
-            onClick={() => changeStage(4)}
-            className={"main-tab" + (stage >= 4 ? " active" : null)}
-          >
+          <li className={"main-tab" + (stage >= 4 ? " active" : null)}>
             <a style={{ cursor: "pointer" }}>
               <span className="number">4</span>
               <div className="tab-title">Presaging</div>
             </a>
           </li>
           <li
-            onClick={() => changeStage(5)}
-            className={"main-tab" + (stage >= 5 ? " active" : null)}
+            onClick={() => changeStage(4)}
+            className={"main-tab" + (stage >= 4 ? " active" : null)}
           >
             <a style={{ cursor: "pointer" }}>
               <span className="number">5</span>

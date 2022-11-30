@@ -57,16 +57,11 @@ function Artistlogin() {
                   nextStage={nextStage}
                   prevStage={prevStage}
                   formikprops={formikprops}
+                  changeStage={changeStage}
                 />
               )}
+
               {stage == 4 && (
-                <Preseginglogin
-                  nextStage={nextStage}
-                  prevStage={prevStage}
-                  formikprops={formikprops}
-                />
-              )}
-              {stage == 5 && (
                 <Portfoliologin
                   nextStage={nextStage}
                   prevStage={prevStage}

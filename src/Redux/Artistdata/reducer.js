@@ -1,4 +1,6 @@
-export default {
+import { ARTIST_DATA } from "./action";
+
+const initialstate = {
     profileimage: "",
     profilePhoto: "",
     firstName: "",
@@ -28,5 +30,20 @@ export default {
     ismobilevarified: false,
     albumName: '',
     albumCategory: ''
+}
+
+export function artistdatareducer(state = initialstate, action) {
+
+    switch (action.type) {
+        case ARTIST_DATA:
+            return {
+                ...state,
+                ...action.payload
+            }
+
+
+        default:
+            return state;
+    }
 
 }

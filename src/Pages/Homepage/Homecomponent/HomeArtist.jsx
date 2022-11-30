@@ -1,7 +1,6 @@
 import React from "react";
 import SwiperArtist from "../../../Components/Swiper/SwiperArtist";
 import { useSwiper } from "swiper/react";
-
 function HomeArtist() {
   const swiper = useSwiper();
   return (
@@ -25,5 +24,4 @@ function HomeArtist() {
     </>
   );
 }
-
 export default HomeArtist;

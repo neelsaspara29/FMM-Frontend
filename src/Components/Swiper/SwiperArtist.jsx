@@ -486,65 +486,52 @@ function SwiperArtist() {
             </div>
           </div> */}
           <Swiper
-        // effect={"cube"}
-        grabCursor={true}
-        // centeredSlides={true}
-        slidesPerView={4}
-       
-        // onSlideChange={(e) => e.activeIndex}
-        loop={true}
-        
-        // nav
-     
-        modules = { [Navigation, Pagination]}
-        speed={800}
-        autoplay={4000}
-        pagination = {{
-          clickable: true
-        }}
-        
+            // effect={"cube"}
+            grabCursor={true}
+            // centeredSlides={true}
+            slidesPerView={4}
+            // onSlideChange={(e) => e.activeIndex}
+            loop={true}
+            // nav
 
-        breakpoints={{
-          200: {
-            slidesPerView: 1,
-          },
-          480: {
-            slidesPerView: 2,
-          },
-          768: {
-            slidesPerView: 3,
-          },
-          991: {
-            slidesPerView: 4,
-          },
-        }}
-        // pagination={{ el: paginationRef.current }}
+            modules={[Navigation, Pagination]}
+            speed={800}
+            autoplay={4000}
+            pagination={{
+              clickable: true,
+            }}
+            breakpoints={{
+              200: {
+                slidesPerView: 1,
+              },
+              480: {
+                slidesPerView: 2,
+              },
+              768: {
+                slidesPerView: 3,
+              },
+              991: {
+                slidesPerView: 4,
+              },
+            }}
+            onInit={(swiper) => {
+              swiper.params.navigation.prevEl = navigationPrevRef.current;
+              swiper.params.navigation.nextEl = navigationNextRef.current;
+              swiper.navigation.init();
+              swiper.navigation.update();
+            }}
+          >
+            {demandartistData.map(({ img }) => {
+              return (
+                <SwiperSlide>
+                  <Demandartistcard src={img} />
+                </SwiperSlide>
+              );
+            })}
 
-
-        onInit={(swiper) => {
-        swiper.params.navigation.prevEl = navigationPrevRef.current;
-        swiper.params.navigation.nextEl = navigationNextRef.current;
-        // swiper.params.pagination.el = paginationRef.current
-        swiper.navigation.init();
-        swiper.navigation.update();
-        
-      }}
-      >
-        {demandartistData.map(({ img }) => {
-          return (
-            <SwiperSlide>
-              <Demandartistcard src={img} />
-            </SwiperSlide>
-          );
-        })}
-
-
-      <div ref={paginationRef} className="swiper-pagination"></div>
-       
-        
-      </Swiper>
-      </div>
-
+            <div ref={paginationRef} className="swiper-pagination"></div>
+          </Swiper>
+        </div>
 
         <div ref={navigationPrevRef} className="swiper-button-prev">
           <svg
@@ -586,12 +573,7 @@ function SwiperArtist() {
             </g>
           </svg>
         </div>
-
-
       </div>
-        
-        
-
     </>
   );
 }
