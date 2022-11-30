@@ -95,7 +95,7 @@ function Navbar() {
               <div className="logo cursor-pointer">
                 <Link to="/">
                   {" "}
-                  <img src="assets/images/logo.png" alt="Logo Image" />
+                  <img src="../../Assets/images/logo.png" alt="Logo Image" />
                 </Link>
               </div>
               <div className="search-bar">
