@@ -9,7 +9,7 @@ function EditorsFavourite() {
           <div className="col-6">
             <div className="image-section">
               <img
-                src="../../../assets/images/testimonial-img.png"
+                src="../../../Assets/images/testimonial-img.png"
                 alt="Image"
               />
               <div className="image-content">
@@ -37,7 +37,7 @@ function EditorsFavourite() {
               <div className="testimonial-top">
                 <img
                   className="testimonial-img1"
-                  src="../../../assets/images/testimonial-img-1.png"
+                  src="../../../Assets/images/testimonial-img-1.png"
                   alt="Image"
                 />
                 <div className="testimonial-right">
@@ -56,7 +56,7 @@ function EditorsFavourite() {
               <div className="testimonial-bottom-section">
                 <img
                   className="testimonial-img2"
-                  src="../../../assets/images/testimonial-img-2.png"
+                  src="../../../Assets/images/testimonial-img-2.png"
                   alt="Image"
                 />
                 <span className="artist-name">Explore the artist</span>
