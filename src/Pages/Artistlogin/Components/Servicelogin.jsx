@@ -83,7 +83,7 @@ function Servicelogin({ formikprops, nextStage, prevStage, changeStage }) {
             </div>
             <div className="col-6">
               <div className="image-section">
-                <img src="assets/images/services-offer.png" alt="image" />
+                <img src="../../Assets/images/services-offer.png" alt="image" />
               </div>
             </div>
           </div>

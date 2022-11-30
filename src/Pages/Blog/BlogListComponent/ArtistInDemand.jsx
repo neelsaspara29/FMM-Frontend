@@ -53,7 +53,7 @@ const ArtistInDemand = () => {
                     <div className="image-section">
                       <div className="images">
                         <img
-                          src="assets/images/artist-img-1.png"
+                          src="../../../Assets/images/artist-img-1.png"
                           alt="Images"
                         />
                       </div>
@@ -144,7 +144,7 @@ const ArtistInDemand = () => {
                     <div className="image-section">
                       <div className="images">
                         <img
-                          src="assets/images/artist-img-2.png"
+                          src="../../../Assets/images/artist-img-2.png"
                           alt="Images"
                         />
                       </div>
@@ -234,7 +234,7 @@ const ArtistInDemand = () => {
                     <div className="image-section">
                       <div className="images">
                         <img
-                          src="assets/images/artist-img-3.png"
+                          src="../../../Assets/images/artist-img-3.png"
                           alt="Images"
                         />
                       </div>
@@ -324,7 +324,7 @@ const ArtistInDemand = () => {
                     <div className="image-section">
                       <div className="images">
                         <img
-                          src="assets/images/artist-img-4.png"
+                          src="../../../Assets/images/artist-img-4.png"
                           alt="Images"
                         />
                       </div>
@@ -414,7 +414,7 @@ const ArtistInDemand = () => {
                     <div className="image-section">
                       <div className="images">
                         <img
-                          src="assets/images/artist-img-1.png"
+                          src="../../../Assets/images/artist-img-1.png"
                           alt="Images"
                         />
                       </div>

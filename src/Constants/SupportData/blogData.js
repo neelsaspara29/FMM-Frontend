@@ -1,14 +1,14 @@
 export default [
     {
-        img: "../../assets/images/blog-img1.png"
+        img: "../../Assets/images/blog-img1.png"
     },
     {
-        img: "../../assets/images/blog-img2.png"
+        img: "../../Assets/images/blog-img2.png"
     },
     {
-        img: "../../assets/images/blog-img1.png"
+        img: "../../Assets/images/blog-img1.png"
     },
     {
-        img: "../../assets/images/blog-img2.png"
+        img: "../../Assets/images/blog-img2.png"
     },
 ]

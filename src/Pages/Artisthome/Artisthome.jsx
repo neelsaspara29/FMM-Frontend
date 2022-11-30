@@ -8,7 +8,7 @@ function Artisthome() {
         <div className="swiper-wrapper">
           <div class="slider-item swiper-slide">
             <img
-              src="../../assets/images/slider-img-1.png"
+              src="../../Assets/images/slider-img-1.png"
               alt="Slider Image"
             />
             <div class="content-section" style={{ width: "100%", top: "35%" }}>

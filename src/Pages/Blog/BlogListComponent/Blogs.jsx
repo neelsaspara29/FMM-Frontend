@@ -9,7 +9,10 @@ const Blogs = () => {
           <div className="row">
             <div className="blog-list-item  col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-1.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-1.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup Primer tips</h2>
@@ -28,7 +31,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-2.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-2.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Beauty Tips</h2>
@@ -47,7 +53,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-3.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-3.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup for ACNE</h2>
@@ -66,7 +75,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-4.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-4.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Application Technique</h2>
@@ -85,7 +97,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-5.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-5.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Skincare tips</h2>
@@ -104,7 +119,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-6.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-6.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup Primer tips</h2>
@@ -123,7 +141,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-7.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-7.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup Primer tips</h2>
@@ -142,7 +163,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-8.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-8.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup Primer tips</h2>
@@ -161,7 +185,10 @@ const Blogs = () => {
             </div>
             <div className="blog-list-item col-4">
               <div className="image-section">
-                <img src="assets/images/blog-list-img-2.png" alt="image" />
+                <img
+                  src="../../../Assets/images/blog-list-img-2.png"
+                  alt="image"
+                />
               </div>
               <div className="content-section">
                 <h2 className="main-title">Makeup Primer tips</h2>
